@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="com.extension-inspector.extension-inspector.controller.transports.List"
+    height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+    xmlns:v="sap.ui.fl.variants"
+>
+    <f:DynamicPage
+        headerExpanded="true"
+        headerPinned="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+                <f:heading>
+                    <v:VariantManagement
+                        id="vm"
+                        for="FilterBar,LineItemTable"
+                        showSetAsDefault="true"
+                        headerLevel="H2"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <macros:FilterBar
+                        metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+                        id="FilterBar"
+                        showClearButton="true"
+                    >
+                        <macros:layoutData>
+                            <FlexItemData shrinkFactor="0" />
+                        </macros:layoutData>
+                    </macros:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <macros:Table
+                metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+                id="LineItemTable"
+                filterBar="FilterBar"
+                selectionMode="Single"
+                widthIncludingColumnHeader="false"
+                type="ResponsiveTable"
+                rowCountMode="Auto"
+                enableExport="true"
+                enableAutoColumnWidth="true"
+                personalization="true"
+                rowPress="onRowPress"
+            >
+                <macros:layoutData>
+                    <FlexItemData
+                        growFactor="1"
+                        baseSize="0%"
+                    />
+                </macros:layoutData>
+                <macros:columns>
+                    <macrosTable:Column
+                        header="{i18n>transports.list.column.RequestTask}"
+                        importance="High"
+                        key="RequestTaskCustom"
+                        anchor="DataField::Type"
+                        placement="Before"
+                        width="25em"
+                    >
+                        <ObjectIdentifier
+                            title="{RequestTask}"
+                            text="{Description}"/>
+                    </macrosTable:Column>
+                    <macrosTable:Column
+                        header="{i18n>transports.list.column.Owner}"
+                        importance="High"
+                        key="OwnerCustom"
+                        anchor="DataField::Status"
+                        placement="After"
+                        width="25em"
+                    >
+                        <Link
+                            text="{
+                                    parts: [
+                                    {path: 'Owner'},
+                                    {path: 'OwnerFullname'}
+                                    ],
+                                    formatter: '.formatter.formatIdAndDescription'
+                                }"
+                            press="onPressOwner"
+                        />
+                    </macrosTable:Column>
+                </macros:columns>
+            </macros:Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

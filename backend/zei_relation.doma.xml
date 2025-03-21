@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZEI_RELATION</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000012</LENG>
+    <OUTPUTLEN>000012</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Types of Relations</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>INHER</DOMVALUE_L>
+     <DDTEXT>Inheritance</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>COMP</DOMVALUE_L>
+     <DDTEXT>Composition</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>AGGR</DOMVALUE_L>
+     <DDTEXT>Aggregation</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ASSOC</DOMVALUE_L>
+     <DDTEXT>Association</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>LNK_SOLID</DOMVALUE_L>
+     <DDTEXT>Link (Solid)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>LNK_DASHED</DOMVALUE_L>
+     <DDTEXT>Link (Dashed)</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DPNDNCY</DOMVALUE_L>
+     <DDTEXT>Dependency</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0008</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>RLZTN</DOMVALUE_L>
+     <DDTEXT>Realization</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0009</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_PROJ</DOMVALUE_L>
+     <DDTEXT>Projection of</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0010</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_SELEC</DOMVALUE_L>
+     <DDTEXT>Selection of</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0011</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_IJOIN</DOMVALUE_L>
+     <DDTEXT>Inner-Join to</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0012</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_LOJOI</DOMVALUE_L>
+     <DDTEXT>Left-Outer-Join to</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0013</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_ROJOI</DOMVALUE_L>
+     <DDTEXT>Right-Outer-Join to</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0014</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_IMPL</DOMVALUE_L>
+     <DDTEXT>Query Implemented by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0015</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_ASSOC</DOMVALUE_L>
+     <DDTEXT>Association to</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0016</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_COMP</DOMVALUE_L>
+     <DDTEXT>Composition to</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0017</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_EXPO</DOMVALUE_L>
+     <DDTEXT>Exposing</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0018</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_BIND</DOMVALUE_L>
+     <DDTEXT>Binding for</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

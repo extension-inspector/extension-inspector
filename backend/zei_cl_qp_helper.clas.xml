@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZEI_CL_QP_HELPER</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Query Provider Helper Class</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_REQUESTED_ELEMENTS_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get requested elements string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_SKIP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get skip/offset value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_SORT_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get sort string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TOP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get top/maximum rows value</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_REQUESTED_ELEMENTS_STRING</CMPNAME>
+     <SCONAME>REQUEST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Request context</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_REQUESTED_ELEMENTS_STRING</CMPNAME>
+     <SCONAME>REQUESTED_ELEMENTS_STRING</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Requested elements string</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SKIP</CMPNAME>
+     <SCONAME>REQUEST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Request context</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SKIP</CMPNAME>
+     <SCONAME>SKIP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Skip/offset value</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SORT_STRING</CMPNAME>
+     <SCONAME>FALLBACK_FIELD_TO_FILTER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Field to fall back on, if no filters can be found</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SORT_STRING</CMPNAME>
+     <SCONAME>REQUEST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Request context</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_SORT_STRING</CMPNAME>
+     <SCONAME>SORT_STRING</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Sort string</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TOP</CMPNAME>
+     <SCONAME>REQUEST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Request context</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TOP</CMPNAME>
+     <SCONAME>TOP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Top/maximum rows value</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

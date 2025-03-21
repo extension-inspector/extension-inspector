@@ -1,0 +1,20 @@
+managed implementation in class zbp_ei_i_buildingblockhead unique;
+strict ( 1 );
+
+define behavior for ZEI_I_BuildingBlockHead alias BuildingBlockHead
+persistent table zei_bb_head
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  mapping for zei_bb_head
+  {
+    Guid = bb_guid;
+    Type = type;
+    Name = name;
+    ParentBBGuid = parent_bb;
+  }
+}

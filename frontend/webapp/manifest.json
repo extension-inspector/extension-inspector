@@ -1,0 +1,228 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.extension-inspector.extension-inspector",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.2",
+      "toolsId": "0ae1d10e-944e-47be-8f87-5428a09ac00f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zei_ui_o4/srvd/sap/zei_ui/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "fullWidth": true,
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+        "sap.fe.macros": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.extension-inspector.extension-inspector.i18n.i18n"
+        }
+      },
+      "side": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/sideContent.json"
+      },
+      "cockpitDashboard": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/cockpitDashboard.json"
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlId": "mainContents",
+        "viewType": "XML",
+        "controlAggregation": "pages",
+        "viewPath": "com.extension-inspector.extension-inspector.view",
+        "transition": "fade",
+        "async": true,
+        "path": ""
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "cockpit",
+          "target": "cockpit"
+        },
+        {
+          "pattern": "objects",
+          "name": "objectsListView",
+          "target": "objectsListView"
+        },
+        {
+          "pattern": "objects/{type}/{name}",
+          "name": "objectsDetailView",
+          "target": "objectsDetailView"
+        },
+        {
+          "pattern": "developers",
+          "name": "developersListView",
+          "target": "developersListView"
+        },
+        {
+          "pattern": "developers/{name}",
+          "name": "developersDetailView",
+          "target": "developersDetailView"
+        },
+        {
+          "pattern": "transports",
+          "name": "transportsListView",
+          "target": "transportsListView"
+        },
+        {
+          "pattern": "transports/{transport}",
+          "name": "transportsDetailView",
+          "target": "transportsDetailView"
+        }
+      ],
+      "targets": {
+        "cockpit": {
+          "viewId": "cockpit",
+          "viewName": "Cockpit"
+        },
+        "objectsListView": {
+          "type": "Component",
+          "id": "objectsListView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.objects.List",
+              "contextPath": "/Objects"
+            }
+          }
+        },
+        "objectsDetailView": {
+          "type": "Component",
+          "id": "objectsDetailView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.objects.Detail",
+              "contextPath": "/Objects"
+            }
+          }
+        },
+        "developersListView": {
+          "type": "Component",
+          "id": "developersListView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.developers.List",
+              "contextPath": "/Developers"
+            }
+          }
+        },
+        "developersDetailView": {
+          "type": "Component",
+          "id": "developersDetailView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.developers.Detail",
+              "contextPath": "/Developers"
+            }
+          }
+        },
+        "transportsListView": {
+          "type": "Component",
+          "id": "transportsListView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.transports.List",
+              "contextPath": "/Transports"
+            }
+          }
+        },
+        "transportsDetailView": {
+          "type": "Component",
+          "id": "transportsDetailView",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.extension-inspector.extension-inspector.view.transports.Detail",
+              "contextPath": "/Transports"
+            }
+          }
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.extension-inspector.extension-inspector.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.fiori": {}
+}

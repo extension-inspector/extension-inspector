@@ -1,0 +1,168 @@
+<mvc:View controllerName="com.extension-inspector.extension-inspector.controller.transports.Detail" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:macros="sap.fe.macros" xmlns:macrosTable="sap.fe.macros.table" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns="sap.uxap" xmlns:table="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:custom="com.extension-inspector.extension-inspector.control">
+    <ObjectPageLayout showTitleInHeaderContent="true" selectedSection="paymentSubSection" useIconTabBar="true" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:Title text="{RequestTask}" wrapping="true"/>
+                </expandedHeading>
+                <snappedHeading>
+                    <m:FlexBox fitContainer="true" alignItems="Center">
+                        <m:Title text="{RequestTask}" wrapping="true"/>
+                    </m:FlexBox>
+                </snappedHeading>
+                <expandedContent>
+                    <m:Text text="{Description}"/>
+                </expandedContent>
+                <snappedContent>
+                    <m:Text text="{Description}"/>
+                </snappedContent>
+                <snappedTitleOnMobile>
+                    <m:Title text="{Description}"/>
+                </snappedTitleOnMobile>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true">
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Type"/>
+                    <m:Text text="{TypeText}"/>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Last changed"/>
+                    <m:Text text="{ChangedOn} {ChangedAt}"/>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Parent request"/>
+                    <m:Link text="{ParentRequest}" press="onPressParentRequest"/>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Owner"/>
+                    <m:Text text="{OwnerFullname} ({Owner})"/>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Status"/>
+                    <m:Text text="{StatusText}"/>
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
+        <sections>
+            <ObjectPageSection titleUppercase="false" title="{i18n>transports.detail.general.title}">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false"  title="{i18n>transports.detail.tasks.title}">
+                        <blocks>
+                            <macros:Table metaPath="_Tasks/@com.sap.vocabularies.UI.v1.LineItem" id="TasksTable" header="{i18n>transports.detail.tasks.table.title}" rowCount="10" selectionMode="Single" widthIncludingColumnHeader="false" type="ResponsiveTable" rowCountMode="Auto" enableExport="true" enableAutoColumnWidth="true" personalization="true" rowPress="onTaskRowPress">
+                                <macros:layoutData>
+                                    <m:FlexItemData growFactor="1" baseSize="0%"/>
+                                </macros:layoutData>
+                                <macros:columns>
+									<macrosTable:Column
+										header="{i18n>transports.list.column.RequestTask}"
+										importance="High"
+										key="RequestTaskCustom"
+										anchor="DataField::Type"
+										placement="Before"
+										width="25em"
+									>
+										<m:ObjectIdentifier
+											title="{RequestTask}"
+											text="{Description}"/>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>transports.list.column.Owner}"
+										importance="High"
+										key="OwnerCustom"
+										anchor="DataField::Status"
+										placement="After"
+										width="25em"
+									>
+										<m:Link
+											text="{OwnerFullname} ({Owner})"
+											press="onPressOwner"
+										/>
+									</macrosTable:Column>
+								</macros:columns>
+                            </macros:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+					<ObjectPageSubSection titleUppercase="false" title="{i18n>transports.detail.entries.title}">
+                        <blocks>
+                            <macros:Table metaPath="_Entries/@com.sap.vocabularies.UI.v1.LineItem" id="EntryTable" rowCount="10" selectionMode="Single" widthIncludingColumnHeader="false" type="ResponsiveTable" rowCountMode="Auto" enableExport="true" enableAutoColumnWidth="true" personalization="true" rowPress="onEntryRowPress">
+                                <macros:layoutData>
+                                    <m:FlexItemData growFactor="1" baseSize="0%"/>
+                                </macros:layoutData>
+                                <macros:columns>
+									<macrosTable:Column
+										header="{i18n>objects.list.column.ObjectType}"
+										importance="High"
+										key="ABAPObjectTypeCustom"
+										anchor="DataField::CreatedOn"
+										placement="Before"
+										width="20em"
+									>
+										<m:HBox>
+											<m:Image src="../images/{ABAPObjectType}.png" height="30px" class="sapUiTinyMarginEnd" />
+											<m:FlexBox
+												height="30px"
+												alignItems="Center"
+												justifyContent="Start">
+												<m:Text text="{ABAPObjectTypeName}" />
+											</m:FlexBox>
+										</m:HBox>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>objects.list.column.Object}"
+										importance="High"
+										key="ABAPObjectCustom"
+										anchor="ABAPObjectTypeCustom"
+										placement="After"
+										width="25em"
+									>
+										<m:ObjectIdentifier
+											title="{ABAPObject}"
+											text="{ABAPObjectDescription}"/>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>objects.list.column.ParentABAPPackage}"
+										key="ParentABAPPackageCustom"
+										anchor="IsDeletedCustom"
+										placement="Before"
+										width="17em"
+									>
+										<m:Link
+											text="{ParentABAPPackage}"
+											press="onPressParentPackage"
+										/>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>objects.list.column.Author}"
+										key="AuthorCustom"
+										anchor="ABAPObjectCustom"
+										width="12em"
+										placement="After"
+									>
+										<m:Link
+											text="{PersonResponsibleFullname} ({PersonResponsible})"
+											press="onPressCreatedBy"
+										/>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>objects.list.column.IsDeleted}"
+										importance="High"
+										width="7em"
+										key="IsDeletedCustom"
+									>
+										<m:GenericTag
+											text="{IsDeleted}"
+											design="StatusIconHidden"
+											status="{= %{IsDeleted} ? 'Error' : 'None'}"
+										/>
+									</macrosTable:Column>
+								</macros:columns>
+                            </macros:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

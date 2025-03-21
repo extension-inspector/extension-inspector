@@ -1,0 +1,25 @@
+managed implementation in class zei_bp_i_objectrelation unique;
+strict ( 1 );
+
+define behavior for ZEI_I_ObjectRelations alias ObjectRelation
+persistent table zei_object_rel
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  mapping for zei_object_rel
+  {
+    Guid = guid;
+    SourceObjectType = src_object_type;
+    SourceObjectName = src_object_name;
+    TargetObjectType = tgt_object_type;
+    TargetObjectName = tgt_object_name;
+    Relation = relation;
+    CreatedAt = created_at;
+    CreatedOn = created_on;
+  }
+}

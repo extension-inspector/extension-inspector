@@ -1,0 +1,102 @@
+<mvc:View
+    controllerName="com.extension-inspector.extension-inspector.controller.developers.Detail"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    displayBlock="true"
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+    xmlns:m="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.uxap"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:custom="com.extension-inspector.extension-inspector.control"
+>
+    	<ObjectPageLayout id="ObjectPageLayou1t"
+		showTitleInHeaderContent="true"
+		selectedSection="paymentSubSection"
+		useIconTabBar="true"
+		upperCaseAnchorBar="false">
+		<headerTitle>
+		
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{Fullname}" wrapping="true"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:VBox>
+						<m:Title text="{Fullname}" wrapping="true"/>
+						<m:Label text="{Developer}"/>
+					</m:VBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Text text="{Developer}"/>
+				</expandedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title text="{Developer}"/>
+				</snappedTitleOnMobile>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:HeaderContainer id="headerContainer" scrollStep="200" showDividers="false" visible="false">
+				<m:VBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="{i18n>developers.detail.header.IsDeleted}" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="test" class="sapMObjectStatusLarge" />
+				</m:VBox>
+				<m:VBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="{i18n>developers.detail.header.IsDeleted}" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="test" class="sapMObjectStatusLarge" />
+				</m:VBox>
+				<m:VBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
+					<m:Title text="{i18n>developers.detail.header.IsDeleted}" class="sapUiTinyMarginBottom" />
+					<m:ObjectStatus text="test" class="sapMObjectStatusLarge" />
+				</m:VBox>
+			</m:HeaderContainer>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+                            <macros:Table metaPath="_TransportHeaders/@com.sap.vocabularies.UI.v1.LineItem" id="TransportTable" rowCount="10" selectionMode="Single" widthIncludingColumnHeader="false" type="ResponsiveTable" rowCountMode="Auto" enableExport="true" enableAutoColumnWidth="true" personalization="true" rowPress="onTaskRowPress">
+                                <macros:layoutData>
+                                    <m:FlexItemData growFactor="1" baseSize="0%"/>
+                                </macros:layoutData>
+                                <macros:columns>
+									<macrosTable:Column
+										header="{i18n>transports.list.column.RequestTask}"
+										importance="High"
+										key="RequestTaskCustom"
+										anchor="DataField::Type"
+										placement="Before"
+										width="25em"
+									>
+										<m:ObjectIdentifier
+											title="{RequestTask}"
+											text="{Description}"/>
+									</macrosTable:Column>
+									<macrosTable:Column
+										header="{i18n>transports.list.column.Owner}"
+										importance="High"
+										key="OwnerCustom"
+										anchor="DataField::Status"
+										placement="After"
+										width="25em"
+									>
+										<m:Link
+											text="{OwnerFullname} ({Owner})"
+											press="onPressOwner"
+										/>
+									</macrosTable:Column>
+								</macros:columns>
+                            </macros:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

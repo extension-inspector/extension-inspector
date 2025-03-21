@@ -1,0 +1,21 @@
+abstract;
+strict ( 1 );
+with hierarchy;
+
+define behavior for ZEI_D_GETDECLARATIONS_OUT alias ParameterHeader
+{
+  field ( suppress ) DummyKey;
+
+  association _Definitions;
+  association _Relations;
+}
+
+define behavior for ZEI_D_GETDECLARATIONS_OUT_DEF alias Definitions
+{
+  field ( suppress ) DummyKey;
+}
+
+define behavior for ZEI_D_GETDECLARATIONS_OUT_REL alias Relations
+{
+  field ( suppress ) DummyKey;
+}

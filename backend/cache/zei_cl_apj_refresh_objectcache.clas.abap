@@ -1,0 +1,47 @@
+CLASS zei_cl_apj_refresh_objectcache DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_apj_dt_exec_object.
+    INTERFACES if_apj_rt_exec_object.
+
+    DATA patterns TYPE RANGE OF char50.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zei_cl_apj_refresh_objectcache IMPLEMENTATION.
+
+
+  METHOD if_apj_dt_exec_object~get_parameters.
+    et_parameter_def = VALUE #( ( selname = 'PATTERNS' kind = if_apj_dt_exec_object=>select_option datatype = 'C' length = 50 param_text = 'Patterns' ) ).
+  ENDMETHOD.
+
+
+  METHOD if_apj_rt_exec_object~execute.
+    DATA objects TYPE sxco_t_ar_objects.
+
+    LOOP AT it_parameters ASSIGNING FIELD-SYMBOL(<parameter>).
+      DATA(name_filter) = xco_abap_repository=>object_name->get_filter( xco_abap_sql=>constraint->contains_pattern( <parameter>-low ) ).
+      APPEND LINES OF xco_abap_repository=>objects->where( VALUE #( ( name_filter ) ) )->in( xco_abap=>repository )->get( ) TO objects.
+    ENDLOOP.
+
+    LOOP AT objects ASSIGNING FIELD-SYMBOL(<object>).
+      DATA(type) = <object>->type->value.
+      DATA(name) = <object>->name->value.
+
+      zei_cl_cachefactory=>get_cache_object_for( i_object_type = type i_object_name = name )->cache( ).
+    ENDLOOP.
+
+    DELETE FROM zei_object_rel.
+    DELETE FROM zei_object_def.
+
+    COMMIT ENTITIES.
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,53 @@
+{
+	"selectedKey": "cockpit",
+	"navigation": [
+		{
+			"titleI18nKey": "sideContent.cockpit",
+			"icon": "sap-icon://home",
+			"expanded": true,
+			"key": "cockpit",
+			"items": []
+		},
+		{
+			"titleI18nKey": "sideContent.objects",
+			"icon": "sap-icon://database",
+			"expanded": true,
+			"key": "objectsListView",
+			"items": []
+		},
+		{
+			"titleI18nKey": "sideContent.developers",
+			"icon": "sap-icon://developer-settings",
+			"expanded": true,
+			"selectable": true,
+			"key": "developersListView"
+		},
+		{
+			"titleI18nKey": "sideContent.transports",
+			"icon": "sap-icon://shipping-status",
+			"expanded": true,
+			"selectable": true,
+			"key": "transportsListView"
+		}
+	],
+	"fixedNavigation": [
+		{
+			"titleI18nKey": "sideContent.about",
+			"icon": "sap-icon://chain-link",
+			"key": "/about",
+			"href": "https://github.com/extension-inspector",
+			"target": "_blank"
+		},
+		{
+			"titleI18nKey": "sideContent.sendFeedback",
+			"icon": "sap-icon://feedback",
+			"key": "/feedback",
+			"href": "mailto:contact@extension-inspector.com?subject=Hi! I [found a bug/love to see a new feature]."
+		},
+		{
+			"titleI18nKey": "-version",
+			"icon": "sap-icon://hint",
+			"enabled": false
+		}
+	]
+}

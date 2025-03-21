@@ -1,0 +1,5 @@
+CLASS zei_bp_i_actionsdummy DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zei_i_actionsdummy.
+ENDCLASS.
+
+CLASS zei_bp_i_actionsdummy IMPLEMENTATION.
+ENDCLASS.

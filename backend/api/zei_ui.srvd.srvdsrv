@@ -1,0 +1,16 @@
+@EndUserText.label: 'Service Def. for Extension Inspector'
+define service ZEI_UI {
+  expose ZEI_C_Developers as Developers;
+  expose ZEI_C_OBJECTS as Objects;
+  expose ZEI_C_Transports as Transports;
+  expose ZEI_I_OBJECTTYPEVH as ObjectTypeVH;
+  expose ZEI_I_ObjectAccesses as Accesses;
+  expose ZEI_I_ACTIONSDUMMY as Actions;
+  expose ZEI_C_TransportEntries as TransportEntries;
+  expose ZEI_C_ObjectRelations as ObjectRelations;
+  expose ZEI_C_KPI_MostAccessedObjects as KPIMostAccessedObjects;
+  expose ZEI_C_DevObjectVersionCnsldt as ObjectVersionsCnsldt;
+  expose ZEI_C_ReleaseInfo as ReleaseInformation;
+  expose ZEI_C_BuildingBlockHead as BuildingBlocks;
+  expose ZEI_C_BuildingBlockItem as BuildingBlockItems;
+}

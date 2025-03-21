@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:mvc="sap.ui.core.mvc">
+    <List
+        items="{
+			path: '/KPIMostAccessedObjects',
+             sorter: [{
+                path: 'Accesses', 
+                descending: true
+            }]
+		}"
+        growingThreshold="5"
+        growing="true" >
+        <CustomListItem>
+            <FlexBox alignItems="Start" justifyContent="SpaceBetween">
+                <FlexBox
+                    height="40px"
+                    alignItems="Center"
+                    justifyContent="Start">
+                    <Image src="../images/{TargetObjectType}.png" class="sapUiSmallMarginBegin sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                    <Text text="{TargetObjectName}" />
+                </FlexBox>
+                <FlexBox
+                    height="40px"
+                    alignItems="Center"
+                    justifyContent="Start">
+                    <Text text="{Accesses}" class="sapUiMediumMarginEnd" />
+                </FlexBox>
+		    </FlexBox>
+		</CustomListItem>
+    </List>
+</core:FragmentDefinition>

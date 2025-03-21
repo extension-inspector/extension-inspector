@@ -1,0 +1,38 @@
+<mvc:View
+	controllerName="com.extension-inspector.extension-inspector.controller.Cockpit"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+	>
+	<Page showHeader="false">
+		<f:GridList
+			id="gridList"
+			items="{
+				path: 'cockpitDashboard>/items',
+				sorter: {
+					path: 'group',
+					descending: false,
+					group: true
+				},
+				groupHeaderFactory: '.createGroupHeader'
+			}"
+			class="sapUiLargeMargin"
+			updateFinished=".onGridListItemBeforeRendering">
+			<f:customLayout>
+				<grid:ResponsiveColumnLayout />
+			</f:customLayout>
+			<f:GridListItem>
+				<f:layoutData>
+					<grid:ResponsiveColumnItemLayoutData columns="{cockpitDashboard>columns}" rows="{cockpitDashboard>rows}" />
+				</f:layoutData>
+				<VBox class="sapUiSmallMargin">
+					<Title text="{path: 'cockpitDashboard>title', formatter: '.getText'}" wrapping="true" visible="{=%{cockpitDashboard>title} !== ''}" />
+					<Label text="{path: 'cockpitDashboard>subtitle', formatter: '.getText'}" wrapping="true" visible="{=%{cockpitDashboard>subtitle} !== ''}" />
+				</VBox>
+			</f:GridListItem>
+		</f:GridList>
+	</Page>
+</mvc:View>

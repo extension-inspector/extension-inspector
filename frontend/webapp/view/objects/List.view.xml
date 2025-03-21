@@ -1,0 +1,244 @@
+<mvc:View
+    controllerName="com.extension-inspector.extension-inspector.controller.objects.List"
+    height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+    xmlns:v="sap.ui.fl.variants"
+    xmlns:plugins="sap.m.plugins"
+    xmlns:commons="sap.suite.ui.commons"
+>
+    <f:DynamicPage
+        headerExpanded="true"
+        headerPinned="true"
+        stickySubheaderProvider="iconTabBar"
+    >
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <v:VariantManagement
+                        id="vm"
+                        for="FilterBar,LineItemTable"
+                        showSetAsDefault="true"
+                        headerLevel="H2"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <macros:FilterBar
+                        metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+                        id="FilterBar"
+                        showClearButton="true"
+                        search="onSearch"
+                    >
+                        <macros:layoutData>
+                            <FlexItemData shrinkFactor="0" />
+                        </macros:layoutData>
+                    </macros:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="{i18n>objects.subheader.title.List}">
+                        <macros:Table
+                            metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+                            id="LineItemTable"
+                            filterBar="FilterBar"
+                            selectionMode="Single"
+                            widthIncludingColumnHeader="false"
+                            type="ResponsiveTable"
+                            rowCountMode="Auto"
+                            enableExport="true"
+                            enableAutoColumnWidth="true"
+                            personalization="true"
+                            rowPress="onRowPress"
+                        >
+                            <macros:layoutData>
+                                <FlexItemData
+                                    growFactor="1"
+                                    baseSize="0%"
+                                />
+                            </macros:layoutData>
+                            <macros:columns>
+                                 <macrosTable:Column
+                                    header="{i18n>objects.list.column.ObjectType}"
+                                    importance="High"
+                                    key="ABAPObjectTypeCustom"
+                                    anchor="DataField::CreatedOn"
+                                    placement="Before"
+                                    width="20em"
+                                >
+                                    <HBox>
+                                        <Image src="{ path: 'ABAPObjectType', formatter: '.getAvatarURL' }" height="30px" class="sapUiTinyMarginEnd" />
+                                        <FlexBox
+                                            height="30px"
+                                            alignItems="Center"
+                                            justifyContent="Start">
+                                            <Text text="{ABAPObjectTypeName}" />
+                                        </FlexBox>
+                                    </HBox>
+                                </macrosTable:Column>
+                                <macrosTable:Column
+                                    header="{i18n>objects.list.column.Object}"
+                                    importance="High"
+                                    key="ABAPObjectCustom"
+                                    anchor="ABAPObjectTypeCustom"
+                                    placement="After"
+                                    width="25em"
+                                >
+                                    <ObjectIdentifier
+                                        title="{ABAPObject}"
+                                        text="{ABAPObjectDescription}"/>
+                                </macrosTable:Column>
+                                <macrosTable:Column
+                                    header="{i18n>objects.list.column.ParentABAPPackage}"
+                                    key="ParentABAPPackageCustom"
+                                    anchor="DataField::ABAPObjectDescription"
+                                    placement="After"
+                                    width="17em"
+                                >
+                                    <Link
+                                        text="{ParentABAPPackage}"
+                                        press="onPressParentPackage"
+                                    />
+                                </macrosTable:Column>
+                                <macrosTable:Column
+                                    header="{i18n>objects.list.column.Author}"
+                                    key="AuthorCustom"
+                                    anchor="ABAPObjectCustom"
+                                    width="12em"
+                                    placement="After"
+                                >
+                                    <Link
+                                        text="{
+                                            parts: [
+                                            {path: 'PersonResponsible'},
+                                            {path: 'PersonResponsibleFullname'}
+                                            ],
+                                            formatter: '.formatter.formatIdAndDescription'
+                                        }"
+                                        press="onPressCreatedBy"
+                                    />
+                                </macrosTable:Column>
+                                <macrosTable:Column
+                                    header="{i18n>objects.list.column.IsDeleted}"
+                                    importance="High"
+                                    width="7em"
+                                    key="IsDeletedCustom"
+                                >
+                                    <GenericTag
+                                        text="{IsDeleted}"
+                                        design="StatusIconHidden"
+                                        status="{= %{IsDeleted} ? 'Error' : 'None'}"
+                                    />
+                                </macrosTable:Column>
+
+                                <macrosTable:Column
+                                    header="{i18n>objects.list.column.releaseState}"
+                                    width="7em"
+                                    anchor="IsDeletedCustom"
+                                    placement="Before"
+                                    key="ReleaseStateCustom"
+                                >
+                                    <commons:MicroProcessFlow>
+                                        <commons:content>
+                                            <commons:MicroProcessFlowItem showSeparator="false" icon="sap-icon://cloud" state="{= %{ReleasedForCloudDevelopment} ? 'Success' : 'None'}" title="{i18n>misc.ReleasedForUseInCloudDevelopment}" />
+                                            <commons:MicroProcessFlowItem showSeparator="false" icon="sap-icon://key-user-settings" state="{= %{ReleasedForKeyUserApps} ? 'Success' : 'None'}" title="{i18n>misc.ReleasedForUseInKeyUserApps}" />
+                                        </commons:content>
+                                    </commons:MicroProcessFlow>
+                                </macrosTable:Column>
+                            </macros:columns>
+                        </macros:Table>
+                    </IconTabFilter>
+                    <IconTabFilter text="{i18n>objects.subheader.title.Breadcrump}">
+                        <Table
+                            selectionChange="onSelectionChangeBreadcrumpRow"
+                            id="breadcrumpObjectViewTable"
+                            inset="false"
+                            mode="SingleSelectMaster"
+                            items="{
+                                path: '/Objects',
+                                sorter: {
+                                    path: 'ABAPObject'
+                                }
+                            }"
+                            growing="true"
+                            growingScrollToLoad="true"
+                            growingThreshold="72"
+                            fixedLayout="false"
+                            sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
+                            >
+                            <headerToolbar>
+                                <OverflowToolbar >
+                                    <Title id="title" text="Objects" level="H3" />
+                                    <ToolbarSpacer/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <dependents>
+                                <plugins:ColumnResizer/>
+                            </dependents>
+                            <infoToolbar>
+                                <OverflowToolbar>
+                                    <Breadcrumbs id="objectBreadcrumps" class="sapUiTinyMarginTop" currentLocationText="{i18n>objects.breadcrumplist.root}" />
+                                </OverflowToolbar>
+                            </infoToolbar>
+                             <layoutData>
+                                <FlexItemData
+                                    growFactor="1"
+                                    baseSize="0%"
+                                />
+                            </layoutData>
+                            <columns>
+                                <Column width="25em">
+                                    <Text text="Object Type" />
+                                </Column>
+                                <Column width="25em">
+                                    <Text text="Object" />
+                                </Column>
+                                <Column width="12em">
+                                    <Text text="Created By" />
+                                </Column>
+                                <Column width="10em">
+                                    <Text text="Created On" />
+                                </Column>
+                                <Column width="7em">
+                                    <Text text="Is Deleted" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle" type="{= %{ABAPObjectType} === 'DEVC' ? 'Active' : 'Navigation'}">
+                                    <cells>
+                                        <Text
+                                            text="{ABAPObjectType} ({ABAPObjectTypeName})" />
+                                        <ObjectIdentifier
+                                            title="{ABAPObject}"
+                                            text="{ABAPObjectDescription}"/>
+                                        <Link
+                                            text="{PersonResponsibleFullname} ({PersonResponsible})"
+                                            press="onPressCreatedBy"
+                                        />
+                                        <Text
+                                            text="{CreatedOn}" />
+                                        <GenericTag
+                                            text="{IsDeleted}"
+                                            design="StatusIconHidden"
+                                            status="{= %{IsDeleted} ? 'Error' : 'None'}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

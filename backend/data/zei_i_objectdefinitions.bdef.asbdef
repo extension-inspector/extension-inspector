@@ -1,0 +1,26 @@
+managed implementation in class zei_bp_i_objectdefinition unique;
+strict ( 1 );
+
+define behavior for ZEI_I_ObjectDefinitions alias ObjectDefinition
+persistent table zei_object_def
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  mapping for ZEI_OBJECT_DEF
+  {
+    Guid = guid;
+    SourceObjectType = src_object_type;
+    SourceObjectName = src_object_name;
+    DefinitionType = def_type;
+    AccessModifier = access_modifier;
+    DefinitionName = def_name;
+    ReferenceVariable1 = ref_var1;
+    ReferenceVariable2 = ref_var2;
+    CreatedAt = created_at;
+    CreatedOn = created_on;
+  }
+}

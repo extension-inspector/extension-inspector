@@ -1,0 +1,89 @@
+<mvc:View
+    controllerName="com.extension-inspector.extension-inspector.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+>
+    <tnt:ToolPage
+        id="app"
+        class="sapUiDemoToolPage"
+    >
+        <tnt:header>
+            <tnt:ToolHeader id="_IDGenToolHeader1">
+                <Image class="sapUiSmallMarginEnd" src="{ path: 'side>', formatter: '.getLogo' }" decorative="false" tooltip="{i18n>appTitle}">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow"/>
+                    </layoutData>
+                </Image>
+                <Title
+                    id="_IDGenTitle"
+                    text="{i18n>appTitle}"
+                    level="H2"
+                    class="sapUiTinyMarginEnd"
+                />
+                <ToolbarSpacer />
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="_IDGenSideNavigation"
+                expanded="true"
+                selectedKey="{side>/selectedKey}"
+            >
+                <tnt:NavigationList
+                    id="_IDGenNavigationList"
+                    items="{
+						path: 'side>/navigation',
+						templateShareable: false
+					}"
+                >
+                    <tnt:NavigationListItem
+                        id="_IDGenNavigationListItem"
+                        text="{path: 'side>titleI18nKey', formatter: '.getText'}"
+                        icon="{side>icon}"
+                        expanded="{side>expanded}"
+                        selectable="{side>selectable}"
+                        items="{
+							path: 'side>items',
+							templateShareable: false
+						}"
+                        key="{side>key}"
+                        select="onSideNavItemSelected"
+                    >
+                        <tnt:NavigationListItem
+                            id="_IDGenNavigationListItem1"
+                            text="{path: 'side>titleI18nKey', formatter: '.getText'}"
+                            key="{side>key}"
+                            select="onSideNavItemSelected"
+                        />
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
+                <tnt:fixedItem>
+                    <tnt:NavigationList
+                        id="_IDGenNavigationList1"
+                        items="{
+							path: 'side>/fixedNavigation',
+							templateShareable: false
+						}"
+                    >
+                        <tnt:NavigationListItem
+                            id="_IDGenNavigationListItem2"
+                            text="{path: 'side>titleI18nKey', formatter: '.getText'}"
+                            icon="{side>icon}"
+                            key="{side>key}"
+                            href="{side>href}"
+                            target="{side>target}"
+                            select=".onSideNavItemSelected"
+                            enabled="{side>enabled}"
+                        />
+                    </tnt:NavigationList>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="mainContents" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

@@ -1,0 +1,9 @@
+unmanaged implementation in class zei_bp_i_actionsdummy unique;
+strict ( 1 );
+
+define behavior for ZEI_I_ACTIONSDUMMY alias Actions
+lock master
+authorization master ( instance )
+{
+  static function getDeclarations parameter ZEI_D_GETDECLARATIONS_IN deep result [0..1] ZEI_D_GETDECLARATIONS_OUT;
+}

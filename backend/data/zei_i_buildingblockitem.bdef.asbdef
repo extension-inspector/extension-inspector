@@ -1,0 +1,19 @@
+managed implementation in class zbp_ei_i_buildingblockitem unique;
+strict ( 1 );
+
+define behavior for ZEI_I_BuildingBlockItem alias BuildingBlockItem
+persistent table zei_bb_items
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  mapping for zei_bb_items
+  {
+    BuildingBlockGuid = bb_guid;
+    ObjectType = obj_type;
+    ObjectName = obj_name;
+  }
+}
