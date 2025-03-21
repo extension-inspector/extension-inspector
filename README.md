@@ -1,4 +1,4 @@
-![GitHub License](https://img.shields.io/github/license/extension-inspector/extension-inspector-app)
+![GitHub License](https://img.shields.io/github/license/extension-inspector/extension-inspector)
 
 ## Extension Inspector
 
