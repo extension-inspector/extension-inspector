@@ -39,7 +39,7 @@ sap.ui.define([
 
         onPressCreatedBy(oEvent) {
             const oObject = oEvent.getSource().getBindingContext().getObject()
-            const sName = encodeURIComponent(oObject.Author)
+            const sName = encodeURIComponent(oObject.PersonResponsible)
 
             this.getAppComponent().getRouter().navTo("developersDetailView", { "name": sName })
         },
