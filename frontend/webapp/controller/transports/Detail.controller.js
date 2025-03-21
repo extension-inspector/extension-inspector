@@ -1,11 +1,14 @@
 sap.ui.define(
   [
-    "sap/fe/core/PageController"
+    "sap/fe/core/PageController",
+    "com/extension-inspector/extension-inspector/model/formatter"
   ],
-  function (PageController) {
+  function (PageController, formatter) {
     "use strict";
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.transports.Detail", {
+      formatter: formatter,
+
       onInit: function () {
         PageController.prototype.onInit.apply(this)
 

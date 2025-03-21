@@ -100,7 +100,7 @@
 										width="20em"
 									>
 										<m:HBox>
-											<m:Image src="../images/{ABAPObjectType}.png" height="30px" class="sapUiTinyMarginEnd" />
+											<m:Image src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }" height="30px" class="sapUiTinyMarginEnd" />
 											<m:FlexBox
 												height="30px"
 												alignItems="Center"

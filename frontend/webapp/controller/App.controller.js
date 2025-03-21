@@ -1,11 +1,14 @@
 sap.ui.define(
   [
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "com/extension-inspector/extension-inspector/model/formatter"
   ],
-  function (Controller) {
+  function (Controller, formatter) {
     "use strict";
 
     return Controller.extend("com.extension-inspector.extension-inspector.controller.App", {
+      formatter: formatter,
+      
       onInit: function () {
         const oSideModel = this.getOwnerComponent().getModel("side")
         const oRouter = this.getOwnerComponent().getRouter()
@@ -19,10 +22,6 @@ sap.ui.define(
         let sKey = oEvent.getSource().getKey()
 
         this.getOwnerComponent().getRouter().navTo(sKey)
-      },
-
-      getLogo: function() {
-        return sap.ui.require.toUrl('com/extension-inspector/extension-inspector/images/ei-logo-2.png')
       },
 
       getText: function (sI18nKey, aPlaceholderValues) {

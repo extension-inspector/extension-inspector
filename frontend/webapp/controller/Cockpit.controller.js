@@ -2,12 +2,14 @@ sap.ui.define([
     "sap/fe/core/PageController",
     "sap/ui/core/Fragment",
     "sap/ui/model/json/JSONModel",
-    "com/extension-inspector/extension-inspector/model/customFunctions"
-], function (PageController, Fragment, JSONModel, customFunctions) {
+    "com/extension-inspector/extension-inspector/model/customFunctions",
+    "com/extension-inspector/extension-inspector/model/formatter"
+], function (PageController, Fragment, JSONModel, customFunctions, formatter) {
     "use strict";
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.Cockpit", {
         customFunctions: customFunctions,
+        formatter: formatter,
 
         onInit: function () {
             PageController.prototype.onInit.apply(this)

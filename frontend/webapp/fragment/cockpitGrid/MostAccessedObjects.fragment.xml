@@ -20,7 +20,7 @@
                     height="40px"
                     alignItems="Center"
                     justifyContent="Start">
-                    <Image src="../images/{TargetObjectType}.png" class="sapUiSmallMarginBegin sapUiTinyMarginEnd sapUiTinyMarginTop" />
+                    <Image src="{ path: 'TargetObjectType', formatter: '.formatter.getObjectAvatarURL' }" height="30px" class="sapUiSmallMarginBegin sapUiTinyMarginEnd sapUiTinyMarginTop" />
                     <Text text="{TargetObjectName}" />
                 </FlexBox>
                 <FlexBox

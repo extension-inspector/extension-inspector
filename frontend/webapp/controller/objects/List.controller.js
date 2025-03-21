@@ -80,13 +80,6 @@ sap.ui.define([
             this._handleBreadcrumpFilter()
         },
 
-        getAvatarURL: function (sType) {
-            if (sType === 'ACID' || sType === 'STOB' || sType === 'G4BA' || sType === 'IWMO' || sType === 'IWOM' || sType === 'IWSG' || sType === 'IWVB' || sType === 'SICF') {
-                sType = 'default'
-            }
-            return sap.ui.require.toUrl(`com/extension-inspector/extension-inspector/images/${sType}.png`)
-        },
-
         _setBreadcrumpFilter(sNewFilter) {
             const oTable = this.getView().byId("breadcrumpObjectViewTable")
             const oBinding = oTable.getBinding("items")

@@ -21,6 +21,19 @@ sap.ui.define([
 			return `${sDescription} (${sId})`
 		},
 
+		getObjectAvatarURL: function (sType) {
+            const aAvailableObjectAvatars = ['APLO', 'BDEF', 'BOBF', 'CHKV', 'CLAS', 'DCLS', 'DDLS', 'DDLX', 'DEVC', 'DOMA', 'DTEL', 'ENHO', 'FUGR', 'FUNC', 'INCL', 'INTF', 'MSAG', 'PROG', 'SHLP', 'SRVB', 'SRVD', 'STRU', 'TABL', 'TTYP', 'VIEW']
+            
+            if (!aAvailableObjectAvatars.includes(sType)) {
+                sType = 'default'
+            }
+            return sap.ui.require.toUrl(`com/extension-inspector/extension-inspector/images/objects/${sType}.png`)
+        },
+
+		getLogoURL: function() {
+			return sap.ui.require.toUrl('com/extension-inspector/extension-inspector/images/logo.png')
+		},
+
 		openURLForContract: function (sContract) {
 			let sLink = ""
 			switch (sContract) {

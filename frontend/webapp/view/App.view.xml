@@ -12,7 +12,7 @@
     >
         <tnt:header>
             <tnt:ToolHeader id="_IDGenToolHeader1">
-                <Image class="sapUiSmallMarginEnd" src="{ path: 'side>', formatter: '.getLogo' }" decorative="false" tooltip="{i18n>appTitle}">
+                <Image class="sapUiSmallMarginEnd" src="{ value: '', formatter: '.formatter.getLogoURL' }" decorative="false" tooltip="{i18n>appTitle}">
                     <layoutData>
                         <OverflowToolbarLayoutData priority="NeverOverflow"/>
                     </layoutData>

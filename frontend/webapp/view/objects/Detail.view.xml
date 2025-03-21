@@ -32,7 +32,7 @@
 				<snappedHeading>
 					<m:HBox>
 						<m:VBox>
-							<m:Avatar src="{ path: 'ABAPObjectType', formatter: '.getAvatarURL' }" class="sapUiSmallMarginEnd" />
+							<m:Avatar src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }" class="sapUiSmallMarginEnd" />
 						</m:VBox>
 
 						<m:VBox>
@@ -71,7 +71,7 @@
 		<headerContent>
 			<m:HeaderContainer id="headerContainer" scrollStep="200" showDividers="false">
 				<m:HBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
-					<m:Avatar src="{ path: 'ABAPObjectType', formatter: '.getAvatarURL' }" class="sapUiMediumMarginEnd" displaySize="S" displayShape="Square" />
+					<m:Avatar src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }" class="sapUiMediumMarginEnd" displaySize="S" displayShape="Square" />
 
 					<m:VBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
 						<m:Title text="{i18n>objects.detail.header.about}" class="sapUiTinyMarginBottom" />
