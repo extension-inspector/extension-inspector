@@ -105,7 +105,10 @@
         "viewPath": "com.extension-inspector.extension-inspector.view",
         "transition": "fade",
         "async": true,
-        "path": ""
+        "path": "",
+        "bypassed": {
+					"target": "notFound"
+				}
       },
       "routes": [
         {
@@ -145,6 +148,10 @@
         }
       ],
       "targets": {
+        "notFound": {
+          "viewId": "notFound",
+          "viewName": "NotFound"
+        },
         "cockpit": {
           "viewId": "cockpit",
           "viewName": "Cockpit"
@@ -171,6 +178,10 @@
             }
           }
         },
+        "objectNotFoundView": {
+          "viewId": "objectNotFoundView",
+          "viewName": "objects.NotFound"
+        },
         "developersListView": {
           "type": "Component",
           "id": "developersListView",
@@ -193,6 +204,10 @@
             }
           }
         },
+        "developerNotFoundView": {
+          "viewId": "developerNotFoundView",
+          "viewName": "developers.NotFound"
+        },
         "transportsListView": {
           "type": "Component",
           "id": "transportsListView",
@@ -214,6 +229,10 @@
               "contextPath": "/Transports"
             }
           }
+        },
+        "transportNotFoundView": {
+          "viewId": "transportNotFoundView",
+          "viewName": "transports.NotFound"
         }
       }
     },

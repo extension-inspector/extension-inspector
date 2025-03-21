@@ -67,22 +67,18 @@ sap.ui.define(
         oView.bindElement({
           path: sPath,
           events: {
-            change: this._onBindingChange.bind(this),
             dataRequested: function (oEvent) {
-              oView.setBusy(true);
+              oView.setBusy(true)
             },
             dataReceived: function (oEvent) {
-              oView.setBusy(false);
-            }
+              oView.setBusy(false)
+              
+              if (!oView.getBindingContext().getObject()) {
+                this.oRouter.getTargets().display("objectNotFoundView")
+              }
+            }.bind(this)
           }
         })
-      },
-
-      _onBindingChange: function (oEvent) {
-        // No data for the binding
-        if (!this.getView().getBindingContext()) {
-          this.getRouter().getTargets().display("notFound")
-        }
       }
     });
   }
