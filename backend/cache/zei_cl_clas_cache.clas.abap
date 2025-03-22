@@ -36,6 +36,10 @@ CLASS zei_cl_clas_cache IMPLEMENTATION.
   METHOD cache.
     class = xco_abap=>class( CONV #( object_name ) ).
 
+    IF class->exists( ) = abap_false.
+      RETURN.
+    ENDIF.
+
     _handle_header( ).
     _handle_sections( ).
     _handle_acccesses( ).

@@ -17,7 +17,7 @@ ENDCLASS.
 CLASS zei_cl_srvb_cache IMPLEMENTATION.
 
   METHOD cache.
-    service_binding = xco_abap_repository=>object->srvb->for(  CONV #( object_name ) ).
+    service_binding = xco_abap_repository=>object->srvb->for(  CONV #( object_name ) )..
 
     DATA(services) = service_binding->services->all->get( ).
 

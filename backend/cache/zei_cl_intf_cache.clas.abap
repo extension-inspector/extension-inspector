@@ -25,6 +25,10 @@ CLASS zei_cl_intf_cache IMPLEMENTATION.
   METHOD cache.
     interface = xco_abap=>interface( CONV #( object_name ) ).
 
+    IF interface->exists( ) = abap_false.
+      RETURN.
+    ENDIF.
+
     _handle_interfaces( ).
     _handle_data( ).
     _handle_methods( ).

@@ -35,6 +35,10 @@ CLASS zei_cl_ddls_cache IMPLEMENTATION.
   METHOD cache.
     data_definition = xco_cds=>data_definition( CONV #( object_name ) ).
 
+    IF data_definition->exists( ) = abap_false.
+      RETURN.
+    ENDIF.
+
     _handle_type( ).
     _handle_data_source( ).
   ENDMETHOD.
