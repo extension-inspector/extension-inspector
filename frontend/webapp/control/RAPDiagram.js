@@ -1,10 +1,8 @@
 sap.ui.define([
     "sap/ui/core/Control",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",
-    "com/extension-inspector/extension-inspector/js/mermaid-11-4-0",
-    "com/extension-inspector/extension-inspector/js/panzoom"
-], (Control, Filter, FilterOperator, mermaidjs, panzoom) => {
+    "com/extension-inspector/extension-inspector/thirdparty/mermaid",
+    "com/extension-inspector/extension-inspector/thirdparty/panzoom"
+], (Control, mermaidjs, panzoom) => {
     "use strict";
 
     return Control.extend("com.extension-inspector.extension-inspector.control.RAPDiagram", {

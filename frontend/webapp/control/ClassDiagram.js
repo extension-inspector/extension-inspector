@@ -1,9 +1,7 @@
 sap.ui.define([
     "sap/ui/core/Control",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",
-    "com/extension-inspector/extension-inspector/js/mermaid-11-4-0"
-], (Control, Filter, FilterOperator, mermaidjs) => {
+    "com/extension-inspector/extension-inspector/thirdparty/mermaid"
+], (Control, mermaidjs) => {
     "use strict";
 
     return Control.extend("com.extension-inspector.extension-inspector.control.ClassDiagram", {
@@ -174,6 +172,7 @@ sap.ui.define([
             // Lowlight non-main objects
             sDiagramSyntax += `classDef lowlight fill:#eeeeee,stroke:#868686${this.NEW_LINE}`
 
+            sDiagramSyntax = sDiagramSyntax.replaceAll("/", "-")
 
             this.sDiagramSyntax = sDiagramSyntax
 
