@@ -66,6 +66,7 @@ define root view entity ZEI_C_OBJECTS
 
           @UI.selectionField: [{  position: 30 }]
           @UI.lineItem: [{hidden: true}]
+          @EndUserText.label: 'Parent Package'
           ParentABAPPackage,
           IsGeneratedFlag,
           OnlyEditableInSpecialEditor,
