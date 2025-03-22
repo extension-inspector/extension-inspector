@@ -3,10 +3,7 @@
 {
 "FROM":
 [
-"ADRP",
-"E070",
-"E07T",
-"USR21"
+"ZEI_I_TRANSPORTHEADERS"
 ],
 "ASSOCIATED":
 [],
