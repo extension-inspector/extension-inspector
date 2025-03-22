@@ -34,20 +34,19 @@
 		{
 			"titleI18nKey": "sideContent.about",
 			"icon": "sap-icon://chain-link",
-			"key": "/about",
 			"href": "https://github.com/extension-inspector",
 			"target": "_blank"
 		},
 		{
 			"titleI18nKey": "sideContent.sendFeedback",
 			"icon": "sap-icon://feedback",
-			"key": "/feedback",
 			"href": "mailto:contact@extension-inspector.com?subject=Hi! I [found a bug/love to see a new feature]."
 		},
 		{
 			"titleI18nKey": "-version",
 			"icon": "sap-icon://hint",
-			"enabled": false
+			"href": "https://github.com/extension-inspector/extension-inspector/releases",
+			"target": "_blank"
 		}
 	]
 }
