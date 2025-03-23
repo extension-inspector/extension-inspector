@@ -1,52 +1,52 @@
 {
-    "items": [
-        {
-            "group": "cockpit.group.objects",
-            "title": "cockpit.item.mostAccessedObjects.title",
-            "subtitle": "cockpit.item.mostAccessedObjects.subtitle",
-            "columns": 4,
-            "rows": 4,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.MostAccessedObjects"
-        },
-        {
-            "group": "cockpit.group.objects",
-            "title": "cockpit.item.customObjectCounter.title",
-            "subtitle": "cockpit.item.customObjectCounter.subtitle",
-            "columns": 3,
-            "rows": 1,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.CustomObjectCounter"
-        },
-        {
-            "group": "cockpit.group.objects",
-            "title": "cockpit.item.transportLockedObjectCounter.title",
-            "subtitle": "cockpit.item.transportLockedObjectCounter.subtitle",
-            "columns": 3,
-            "rows": 1,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.TransportLockedObjectCounter"
-        },
-        {
-            "group": "cockpit.group.developers",
-            "title": "cockpit.item.developerCounter.title",
-            "subtitle": "cockpit.item.developerCounter.subtitle",
-            "columns": 3,
-            "rows": 1,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.DeveloperCounter"
-        },
-        {
-            "group": "cockpit.group.transports",
-            "title": "cockpit.item.transportCounter.title",
-            "subtitle": "cockpit.item.transportCounter.subtitle",
-            "columns": 3,
-            "rows": 1,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.TransportCounter"
-        },
-        {
-            "group": "cockpit.group.transports",
-            "title": "cockpit.item.openTransportCounter.title",
-            "subtitle": "cockpit.item.openTransportCounter.subtitle",
-            "columns": 3,
-            "rows": 1,
-            "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.OpenTransportCounter"
-        }
-    ]
+  "items": [
+    {
+      "group": "cockpit.group.objects",
+      "title": "cockpit.item.mostAccessedObjects.title",
+      "subtitle": "cockpit.item.mostAccessedObjects.subtitle",
+      "columns": 4,
+      "rows": 4,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.MostAccessedObjects"
+    },
+    {
+      "group": "cockpit.group.objects",
+      "title": "cockpit.item.customObjectCounter.title",
+      "subtitle": "cockpit.item.customObjectCounter.subtitle",
+      "columns": 3,
+      "rows": 1,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.CustomObjectCounter"
+    },
+    {
+      "group": "cockpit.group.objects",
+      "title": "cockpit.item.transportLockedObjectCounter.title",
+      "subtitle": "cockpit.item.transportLockedObjectCounter.subtitle",
+      "columns": 3,
+      "rows": 1,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.TransportLockedObjectCounter"
+    },
+    {
+      "group": "cockpit.group.developers",
+      "title": "cockpit.item.developerCounter.title",
+      "subtitle": "cockpit.item.developerCounter.subtitle",
+      "columns": 3,
+      "rows": 1,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.DeveloperCounter"
+    },
+    {
+      "group": "cockpit.group.transports",
+      "title": "cockpit.item.transportCounter.title",
+      "subtitle": "cockpit.item.transportCounter.subtitle",
+      "columns": 3,
+      "rows": 1,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.TransportCounter"
+    },
+    {
+      "group": "cockpit.group.transports",
+      "title": "cockpit.item.openTransportCounter.title",
+      "subtitle": "cockpit.item.openTransportCounter.subtitle",
+      "columns": 3,
+      "rows": 1,
+      "fragment": "com.extension-inspector.extension-inspector.fragment.cockpitGrid.OpenTransportCounter"
+    }
+  ]
 }

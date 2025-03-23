@@ -35,7 +35,7 @@
                         metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
                         id="FilterBar"
                         showClearButton="true"
-                        search="onSearch"
+                        search=".onSearch"
                     >
                         <macros:layoutData>
                             <FlexItemData shrinkFactor="0" />
@@ -45,7 +45,10 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+            <IconTabBar
+                id="iconTabBar"
+                class="sapUiResponsiveContentPadding"
+            >
                 <items>
                     <IconTabFilter text="{i18n>objects.subheader.title.List}">
                         <macros:Table
@@ -59,7 +62,7 @@
                             enableExport="true"
                             enableAutoColumnWidth="true"
                             personalization="true"
-                            rowPress="onRowPress"
+                            rowPress=".onRowPress"
                         >
                             <macros:layoutData>
                                 <FlexItemData
@@ -68,7 +71,7 @@
                                 />
                             </macros:layoutData>
                             <macros:columns>
-                                 <macrosTable:Column
+                                <macrosTable:Column
                                     header="{i18n>objects.list.column.ObjectType}"
                                     importance="High"
                                     key="ABAPObjectTypeCustom"
@@ -77,11 +80,16 @@
                                     width="20em"
                                 >
                                     <HBox>
-                                        <Image src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }" height="30px" class="sapUiTinyMarginEnd" />
+                                        <Image
+                                            src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }"
+                                            height="30px"
+                                            class="sapUiTinyMarginEnd"
+                                        />
                                         <FlexBox
                                             height="30px"
                                             alignItems="Center"
-                                            justifyContent="Start">
+                                            justifyContent="Start"
+                                        >
                                             <Text text="{ABAPObjectTypeName}" />
                                         </FlexBox>
                                     </HBox>
@@ -96,7 +104,8 @@
                                 >
                                     <ObjectIdentifier
                                         title="{ABAPObject}"
-                                        text="{ABAPObjectDescription}"/>
+                                        text="{ABAPObjectDescription}"
+                                    />
                                 </macrosTable:Column>
                                 <macrosTable:Column
                                     header="{i18n>objects.list.column.ParentABAPPackage}"
@@ -107,7 +116,7 @@
                                 >
                                     <Link
                                         text="{ParentABAPPackage}"
-                                        press="onPressParentPackage"
+                                        press=".onPressParentPackage"
                                     />
                                 </macrosTable:Column>
                                 <macrosTable:Column
@@ -125,7 +134,7 @@
                                             ],
                                             formatter: '.formatter.formatIdAndDescription'
                                         }"
-                                        press="onPressCreatedBy"
+                                        press=".onPressCreatedBy"
                                     />
                                 </macrosTable:Column>
                                 <macrosTable:Column
@@ -150,17 +159,29 @@
                                 >
                                     <commons:MicroProcessFlow>
                                         <commons:content>
-                                            <commons:MicroProcessFlowItem showSeparator="false" icon="sap-icon://cloud" state="{= %{ReleasedForCloudDevelopment} ? 'Success' : 'None'}" title="{i18n>misc.ReleasedForUseInCloudDevelopment}" />
-                                            <commons:MicroProcessFlowItem showSeparator="false" icon="sap-icon://key-user-settings" state="{= %{ReleasedForKeyUserApps} ? 'Success' : 'None'}" title="{i18n>misc.ReleasedForUseInKeyUserApps}" />
+                                            <commons:MicroProcessFlowItem
+                                                showSeparator="false"
+                                                icon="sap-icon://cloud"
+                                                state="{= %{ReleasedForCloudDevelopment} ? 'Success' : 'None'}"
+                                                title="{i18n>misc.ReleasedForUseInCloudDevelopment}"
+                                            />
+                                            <commons:MicroProcessFlowItem
+                                                showSeparator="false"
+                                                icon="sap-icon://key-user-settings"
+                                                state="{= %{ReleasedForKeyUserApps} ? 'Success' : 'None'}"
+                                                title="{i18n>misc.ReleasedForUseInKeyUserApps}"
+                                            />
                                         </commons:content>
                                     </commons:MicroProcessFlow>
                                 </macrosTable:Column>
                             </macros:columns>
                         </macros:Table>
                     </IconTabFilter>
-                    <IconTabFilter text="{i18n>objects.subheader.title.Breadcrump}">
+                    <IconTabFilter
+                        text="{i18n>objects.subheader.title.Breadcrump}"
+                    >
                         <Table
-                            selectionChange="onSelectionChangeBreadcrumpRow"
+                            selectionChange=".onSelectionChangeBreadcrumpRow"
                             id="breadcrumpObjectViewTable"
                             inset="false"
                             mode="SingleSelectMaster"
@@ -175,22 +196,30 @@
                             growingThreshold="72"
                             fixedLayout="false"
                             sticky="ColumnHeaders,HeaderToolbar,InfoToolbar"
-                            >
+                        >
                             <headerToolbar>
-                                <OverflowToolbar >
-                                    <Title id="title" text="Objects" level="H3" />
-                                    <ToolbarSpacer/>
+                                <OverflowToolbar>
+                                    <Title
+                                        id="title"
+                                        text="Objects"
+                                        level="H3"
+                                    />
+                                    <ToolbarSpacer />
                                 </OverflowToolbar>
                             </headerToolbar>
                             <dependents>
-                                <plugins:ColumnResizer/>
+                                <plugins:ColumnResizer />
                             </dependents>
                             <infoToolbar>
                                 <OverflowToolbar>
-                                    <Breadcrumbs id="objectBreadcrumps" class="sapUiTinyMarginTop" currentLocationText="{i18n>objects.breadcrumplist.root}" />
+                                    <Breadcrumbs
+                                        id="objectBreadcrumps"
+                                        class="sapUiTinyMarginTop"
+                                        currentLocationText="{i18n>objects.breadcrumplist.root}"
+                                    />
                                 </OverflowToolbar>
                             </infoToolbar>
-                             <layoutData>
+                            <layoutData>
                                 <FlexItemData
                                     growFactor="1"
                                     baseSize="0%"
@@ -214,19 +243,23 @@
                                 </Column>
                             </columns>
                             <items>
-                                <ColumnListItem vAlign="Middle" type="{= %{ABAPObjectType} === 'DEVC' ? 'Active' : 'Navigation'}">
+                                <ColumnListItem
+                                    vAlign="Middle"
+                                    type="{= %{ABAPObjectType} === 'DEVC' ? 'Active' : 'Navigation'}"
+                                >
                                     <cells>
                                         <Text
-                                            text="{ABAPObjectType} ({ABAPObjectTypeName})" />
+                                            text="{ABAPObjectType} ({ABAPObjectTypeName})"
+                                        />
                                         <ObjectIdentifier
                                             title="{ABAPObject}"
-                                            text="{ABAPObjectDescription}"/>
+                                            text="{ABAPObjectDescription}"
+                                        />
                                         <Link
                                             text="{PersonResponsibleFullname} ({PersonResponsible})"
-                                            press="onPressCreatedBy"
+                                            press=".onPressCreatedBy"
                                         />
-                                        <Text
-                                            text="{CreatedOn}" />
+                                        <Text text="{CreatedOn}" />
                                         <GenericTag
                                             text="{IsDeleted}"
                                             design="StatusIconHidden"

@@ -1,12 +1,10 @@
 /* global QUnit */
-QUnit.config.autostart = false;
+QUnit.config.autostart = false
 
 sap.ui.getCore().attachInit(function () {
-	"use strict";
+  "use strict"
 
-	sap.ui.require([
-		"comextension-inspector/extension-inspector/test/unit/AllTests"
-	], function () {
-		QUnit.start();
-	});
-});
+  sap.ui.require(["comextension-inspector/extension-inspector/test/unit/AllTests"], function () {
+    QUnit.start()
+  })
+})

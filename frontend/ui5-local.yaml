@@ -32,7 +32,7 @@ server:
         backend:
           - path: /sap
             url: http://localhost:50000/
-            client: '001'
+            client: "001"
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:

@@ -18,7 +18,7 @@ server:
         backend:
           - path: /sap
             url: http://vhcala4hci:50000/
-            client: '001'
+            client: "001"
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

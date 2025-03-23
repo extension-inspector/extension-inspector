@@ -12,9 +12,14 @@
     >
         <tnt:header>
             <tnt:ToolHeader id="_IDGenToolHeader1">
-                <Image class="sapUiSmallMarginEnd" src="{ value: '', formatter: '.formatter.getLogoURL' }" decorative="false" tooltip="{i18n>appTitle}">
+                <Image
+                    class="sapUiSmallMarginEnd"
+                    src="{ value: '', formatter: '.formatter.getLogoURL' }"
+                    decorative="false"
+                    tooltip="{i18n>appTitle}"
+                >
                     <layoutData>
-                        <OverflowToolbarLayoutData priority="NeverOverflow"/>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
                     </layoutData>
                 </Image>
                 <Title
@@ -50,13 +55,13 @@
 							templateShareable: false
 						}"
                         key="{side>key}"
-                        select="onSideNavItemSelected"
+                        select=".onSideNavItemSelected"
                     >
                         <tnt:NavigationListItem
                             id="_IDGenNavigationListItem1"
                             text="{path: 'side>titleI18nKey', formatter: '.getText'}"
                             key="{side>key}"
-                            select="onSideNavItemSelected"
+                            select=".onSideNavItemSelected"
                         />
                     </tnt:NavigationListItem>
                 </tnt:NavigationList>

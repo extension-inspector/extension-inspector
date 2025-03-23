@@ -52,7 +52,7 @@
                 enableExport="true"
                 enableAutoColumnWidth="true"
                 personalization="true"
-                rowPress="onRowPress"
+                rowPress=".onRowPress"
             >
                 <macros:layoutData>
                     <FlexItemData
@@ -71,7 +71,8 @@
                     >
                         <ObjectIdentifier
                             title="{RequestTask}"
-                            text="{Description}"/>
+                            text="{Description}"
+                        />
                     </macrosTable:Column>
                     <macrosTable:Column
                         header="{i18n>transports.list.column.Owner}"
@@ -84,12 +85,12 @@
                         <Link
                             text="{
                                     parts: [
-                                    {path: 'Owner'},
-                                    {path: 'OwnerFullname'}
+                                        {path: 'Owner'},
+                                        {path: 'OwnerFullname'}
                                     ],
                                     formatter: '.formatter.formatIdAndDescription'
                                 }"
-                            press="onPressOwner"
+                            press=".onPressOwner"
                         />
                     </macrosTable:Column>
                 </macros:columns>

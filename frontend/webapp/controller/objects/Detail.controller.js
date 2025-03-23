@@ -1,10 +1,7 @@
 sap.ui.define(
-  [
-    "sap/fe/core/PageController",
-    "com/extension-inspector/extension-inspector/model/formatter"
-  ],
+  ["sap/fe/core/PageController", "com/extension-inspector/extension-inspector/model/formatter"],
   function (PageController, formatter) {
-    "use strict";
+    "use strict"
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.objects.Detail", {
       formatter: formatter,
@@ -18,18 +15,26 @@ sap.ui.define(
 
       onParentPackageLinkPress: function (oEvent) {
         const sParentPackage = this.getView().getBindingContext().getObject().ParentABAPPackage
-        this.oRouter.navTo("objectsDetailView", { type: 'DEVC', name: sParentPackage })
+        this.oRouter.navTo("objectsDetailView", {
+          type: "DEVC",
+          name: sParentPackage,
+        })
       },
 
       onSuccessorObjectLinkPress: function (oEvent) {
         const sSuccessorType = this.getView().getBindingContext().getObject().SuccessorABAPObjectType
         const sSuccessorObject = this.getView().getBindingContext().getObject().SuccessorABAPObject
-        this.oRouter.navTo("objectsDetailView", { type: sSuccessorType, name: sSuccessorObject })
+        this.oRouter.navTo("objectsDetailView", {
+          type: sSuccessorType,
+          name: sSuccessorObject,
+        })
       },
 
       onPressCurrentlyLockedTag: function (oEvent) {
         const sLockedInTransport = this.getView().getBindingContext().getObject().LockedInTransport
-        this.oRouter.navTo("transportsDetailView", { transport: sLockedInTransport })
+        this.oRouter.navTo("transportsDetailView", {
+          transport: sLockedInTransport,
+        })
       },
 
       onPressAccessedObjectsRow(oEvent) {
@@ -37,7 +42,7 @@ sap.ui.define(
         const sType = encodeURIComponent(oObject.TargetObjectType)
         const sName = encodeURIComponent(oObject.TargetObjectName)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { "type": sType, "name": sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
       },
 
       onRAPDiagramLayersChange: function (oEvent) {
@@ -72,14 +77,14 @@ sap.ui.define(
             },
             dataReceived: function (oEvent) {
               oView.setBusy(false)
-              
+
               if (!oView.getBindingContext().getObject()) {
                 this.oRouter.getTargets().display("objectNotFoundView")
               }
-            }.bind(this)
-          }
+            }.bind(this),
+          },
         })
-      }
-    });
-  }
-);
+      },
+    })
+  },
+)

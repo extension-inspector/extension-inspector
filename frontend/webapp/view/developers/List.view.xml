@@ -52,7 +52,7 @@
                 enableExport="true"
                 enableAutoColumnWidth="true"
                 personalization="true"
-                rowPress="onRowPress"
+                rowPress=".onRowPress"
             >
                 <macros:layoutData>
                     <FlexItemData
@@ -71,7 +71,8 @@
                     >
                         <ObjectIdentifier
                             title="{Developer}"
-                            text="{Fullname}" />
+                            text="{Fullname}"
+                        />
                     </macrosTable:Column>
                 </macros:columns>
             </macros:Table>

@@ -1,14 +1,11 @@
 sap.ui.define(
-  [
-    "sap/ui/core/mvc/Controller",
-    "com/extension-inspector/extension-inspector/model/formatter"
-  ],
+  ["sap/ui/core/mvc/Controller", "com/extension-inspector/extension-inspector/model/formatter"],
   function (Controller, formatter) {
-    "use strict";
+    "use strict"
 
     return Controller.extend("com.extension-inspector.extension-inspector.controller.App", {
       formatter: formatter,
-      
+
       onInit: function () {
         const oSideModel = this.getOwnerComponent().getModel("side")
         const oRouter = this.getOwnerComponent().getRouter()
@@ -32,7 +29,7 @@ sap.ui.define(
         }
 
         return oResourceBundle.getText(sI18nKey, aPlaceholderValues)
-      }
-    });
-  }
-);
+      },
+    })
+  },
+)

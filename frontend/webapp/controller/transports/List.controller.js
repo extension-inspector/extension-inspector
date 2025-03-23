@@ -1,33 +1,33 @@
-sap.ui.define([
-    "sap/fe/core/PageController",
-    "com/extension-inspector/extension-inspector/model/formatter"
-], function (PageController, formatter) {
-    "use strict";
+sap.ui.define(
+  ["sap/fe/core/PageController", "com/extension-inspector/extension-inspector/model/formatter"],
+  function (PageController, formatter) {
+    "use strict"
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.transports.List", {
-        formatter: formatter,
+      formatter: formatter,
 
-        onInit: function () {
-            PageController.prototype.onInit.apply(this)
-        },
+      onInit: function () {
+        PageController.prototype.onInit.apply(this)
+      },
 
-        onAfterRendering() {
-            const oFilterBar = this.getView().byId("FilterBar")
-            oFilterBar.triggerSearch()
-        },
+      onAfterRendering() {
+        const oFilterBar = this.getView().byId("FilterBar")
+        oFilterBar.triggerSearch()
+      },
 
-        onRowPress(oEvent) {
-            const oObject = oEvent.getParameter("bindingContext").getObject()
-            const sTransport = encodeURIComponent(oObject.RequestTask)
+      onRowPress(oEvent) {
+        const oObject = oEvent.getParameter("bindingContext").getObject()
+        const sTransport = encodeURIComponent(oObject.RequestTask)
 
-            this.getAppComponent().getRouter().navTo("transportsDetailView", { "transport": sTransport })
-        },
+        this.getAppComponent().getRouter().navTo("transportsDetailView", { transport: sTransport })
+      },
 
-        onPressOwner(oEvent) {
-            const oObject = oEvent.getSource().getBindingContext().getObject()
-            const sName = encodeURIComponent(oObject.Owner)
+      onPressOwner(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sName = encodeURIComponent(oObject.Owner)
 
-            this.getAppComponent().getRouter().navTo("developersDetailView", { "name": sName })
-        },
-    });
-});
+        this.getAppComponent().getRouter().navTo("developersDetailView", { name: sName })
+      },
+    })
+  },
+)
