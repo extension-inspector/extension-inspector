@@ -13,8 +13,8 @@
     "yo": "^5.1.0"
   },
   "devDependencies": {
-    "@sap-ux/ui5-middleware-fe-mockserver": "2",
-    "@sap/ux-ui5-tooling": "1",
+    "@sap-ux/ui5-middleware-fe-mockserver": "^2.2.93",
+    "@sap/ux-ui5-tooling": "^1.17.0",
     "@ui5/cli": "^3.0.0",
     "rimraf": "^5.0.5"
   },
