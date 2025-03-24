@@ -16,6 +16,9 @@ sap.ui.define(
       
       onInit: function () {
         PageController.prototype.onInit.apply(this)
+
+        this.oRouter = this.getAppComponent().getRouter()
+        this.oRouter.getRoute("developersListView").attachMatched(this._onRouteMatched, this)
       },
 
       onAfterRendering() {
@@ -38,6 +41,11 @@ sap.ui.define(
 
         this.getAppComponent().getRouter().navTo("developersDetailView", { name: sName })
       },
+
+      _onRouteMatched: function (oEvent) {
+        const oSideModel = this.getOwnerComponent().getModel("side")
+        oSideModel.setProperty("/selectedKey", "developersListView")
+      }
     })
   },
 )

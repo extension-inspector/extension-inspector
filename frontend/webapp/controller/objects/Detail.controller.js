@@ -71,6 +71,9 @@ sap.ui.define(
       },
 
       _onRouteMatched: function (oEvent) {
+        const oSideModel = this.getOwnerComponent().getModel("side")
+        oSideModel.setProperty("/selectedKey", "objectsListView")
+
         const oArgs = oEvent.getParameter("arguments")
         const oView = this.getView()
         const sPath = `/Objects(ProgramId='${oArgs.program}',ABAPObjectType='${oArgs.type}',ABAPObject='${oArgs.name}')`

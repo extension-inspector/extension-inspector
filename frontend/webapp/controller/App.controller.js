@@ -6,15 +6,6 @@ sap.ui.define(
     return Controller.extend("com.extension-inspector.extension-inspector.controller.App", {
       formatter: formatter,
 
-      onInit: function () {
-        const oSideModel = this.getOwnerComponent().getModel("side")
-        const oRouter = this.getOwnerComponent().getRouter()
-        const sCurrentHash = oRouter.getHashChanger().getHash()
-        const sCurrentRouteName = oRouter.getRouteInfoByHash(sCurrentHash.split("/")[0]).name
-
-        oSideModel.setProperty("/selectedKey", sCurrentRouteName)
-      },
-
       onSideNavItemSelected: function (oEvent) {
         let sKey = oEvent.getSource().getKey()
 

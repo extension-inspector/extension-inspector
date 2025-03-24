@@ -15,6 +15,9 @@ sap.ui.define(
 
       onInit() {
         PageController.prototype.onInit.apply(this)
+
+        this.oRouter = this.getAppComponent().getRouter()
+        this.oRouter.getRoute("objectsListView").attachMatched(this._onRouteMatched, this)
       },
 
       onAfterRendering() {
@@ -152,6 +155,11 @@ sap.ui.define(
 
         oBreadcrump.setCurrentLocationText(sName)
       },
+
+      _onRouteMatched: function (oEvent) {
+        const oSideModel = this.getOwnerComponent().getModel("side")
+        oSideModel.setProperty("/selectedKey", "objectsListView")
+      }
     })
   },
 )

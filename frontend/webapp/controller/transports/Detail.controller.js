@@ -44,6 +44,9 @@ sap.ui.define(
       },
 
       _onRouteMatched: function (oEvent) {
+        const oSideModel = this.getOwnerComponent().getModel("side")
+        oSideModel.setProperty("/selectedKey", "transportsListView")
+
         const oArgs = oEvent.getParameter("arguments")
         const oView = this.getView()
         const sPath = `/Transports(RequestTask='${oArgs.transport}')`

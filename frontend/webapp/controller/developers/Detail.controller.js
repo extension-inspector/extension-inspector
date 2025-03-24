@@ -19,6 +19,9 @@ sap.ui.define(["sap/fe/core/PageController", "com/extension-inspector/extension-
     },
 
     _onRouteMatched: function (oEvent) {
+      const oSideModel = this.getOwnerComponent().getModel("side")
+      oSideModel.setProperty("/selectedKey", "developersListView")
+
       const oArgs = oEvent.getParameter("arguments")
       const oView = this.getView()
       const sPath = `/Developers(Developer='${oArgs.name}')`
