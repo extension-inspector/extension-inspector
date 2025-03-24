@@ -70,7 +70,7 @@
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <m:Label text="Owner" />
-                    <m:Text
+                    <m:Link
                         text="{
                                 parts: [
                                     {path: 'Owner'},
@@ -78,6 +78,7 @@
                                 ],
                                 formatter: '.formatter.formatIdAndDescription'
                             }"
+                        press=".onPressOwner"
                     />
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">

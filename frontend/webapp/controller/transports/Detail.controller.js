@@ -35,6 +35,13 @@ sap.ui.define(
         })
       },
 
+      onPressOwner(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sName = encodeURIComponent(oObject.Owner)
+
+        this.getAppComponent().getRouter().navTo("developersDetailView", { name: sName })
+      },
+
       _onRouteMatched: function (oEvent) {
         const oArgs = oEvent.getParameter("arguments")
         const oView = this.getView()

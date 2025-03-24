@@ -124,25 +124,6 @@
                                             text="{Description}"
                                         />
                                     </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>transports.list.column.Owner}"
-                                        importance="High"
-                                        key="OwnerCustom"
-                                        anchor="DataField::Status"
-                                        placement="After"
-                                        width="25em"
-                                    >
-                                        <m:Link
-                                            text="{
-                                                parts: [
-                                                    {path: 'Owner'},
-                                                    {path: 'OwnerFullname'}
-                                                ],
-                                                formatter: '.formatter.formatIdAndDescription'
-                                            }"
-                                            press=".onPressOwner"
-                                        />
-                                    </macrosTable:Column>
                                 </macros:columns>
                             </macros:Table>
                         </blocks>
