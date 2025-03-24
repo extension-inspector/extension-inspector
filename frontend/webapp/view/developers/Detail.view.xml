@@ -102,7 +102,7 @@
                                 enableExport="true"
                                 enableAutoColumnWidth="true"
                                 personalization="true"
-                                rowPress=".onTaskRowPress"
+                                rowPress=".onRowPressTransportTable"
                             >
                                 <macros:layoutData>
                                     <m:FlexItemData

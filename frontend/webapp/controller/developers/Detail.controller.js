@@ -11,6 +11,13 @@ sap.ui.define(["sap/fe/core/PageController", "com/extension-inspector/extension-
       this.oRouter.getRoute("developersDetailView").attachMatched(this._onRouteMatched, this)
     },
 
+    onRowPressTransportTable: function(oEvent) {
+      const sContext = oEvent.getParameter("bindingContext")
+      const sTransport = encodeURIComponent(sContext.getProperty("RequestTask"))
+
+      this.getAppComponent().getRouter().navTo("transportsDetailView", { transport: sTransport })
+    },
+
     _onRouteMatched: function (oEvent) {
       const oArgs = oEvent.getParameter("arguments")
       const oView = this.getView()
