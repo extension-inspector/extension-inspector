@@ -16,6 +16,7 @@ sap.ui.define(
       onParentPackageLinkPress: function (oEvent) {
         const sParentPackage = this.getView().getBindingContext().getObject().ParentABAPPackage
         this.oRouter.navTo("objectsDetailView", {
+          program: "R3TR",
           type: "DEVC",
           name: sParentPackage,
         })
@@ -25,6 +26,7 @@ sap.ui.define(
         const sSuccessorType = this.getView().getBindingContext().getObject().SuccessorABAPObjectType
         const sSuccessorObject = this.getView().getBindingContext().getObject().SuccessorABAPObject
         this.oRouter.navTo("objectsDetailView", {
+          program: "R3TR",
           type: sSuccessorType,
           name: sSuccessorObject,
         })
@@ -49,7 +51,7 @@ sap.ui.define(
         const sType = encodeURIComponent(oObject.TargetObjectType)
         const sName = encodeURIComponent(oObject.TargetObjectName)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: "R3TR", type: sType, name: sName })
       },
 
       onRAPDiagramLayersChange: function (oEvent) {
@@ -71,7 +73,7 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         const oArgs = oEvent.getParameter("arguments")
         const oView = this.getView()
-        const sPath = `/Objects(ProgramId='R3TR',ABAPObjectType='${oArgs.type}',ABAPObject='${oArgs.name}')`
+        const sPath = `/Objects(ProgramId='${oArgs.program}',ABAPObjectType='${oArgs.type}',ABAPObject='${oArgs.name}')`
 
         this.ABAPObjectType = oArgs.type
         this.ABAPObject = oArgs.name

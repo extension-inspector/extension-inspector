@@ -26,17 +26,18 @@ sap.ui.define(
 
       onRowPress(oEvent) {
         const oObject = oEvent.getParameter("bindingContext").getObject()
+        const sProgram = encodeURIComponent(oObject.ProgramId)
         const sType = encodeURIComponent(oObject.ABAPObjectType)
         const sName = encodeURIComponent(oObject.ABAPObject)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: sProgram, type: sType, name: sName })
       },
 
       onPressParentPackage(oEvent) {
         const oObject = oEvent.getSource().getBindingContext().getObject()
         const sName = encodeURIComponent(oObject.ParentABAPPackage)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: "DEVC", name: sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: "R3TR", type: "DEVC", name: sName })
       },
 
       onPressCreatedBy(oEvent) {
@@ -51,10 +52,11 @@ sap.ui.define(
         const oObject = listItem.getBindingContext().getObject()
 
         if (oObject.ABAPObjectType !== "DEVC") {
+          const sProgram = encodeURIComponent(oObject.ProgramId)
           const sType = encodeURIComponent(oObject.ABAPObjectType)
           const sName = encodeURIComponent(oObject.ABAPObject)
 
-          this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+          this.getAppComponent().getRouter().navTo("objectsDetailView", { program: sProgram, type: sType, name: sName })
           return
         }
 

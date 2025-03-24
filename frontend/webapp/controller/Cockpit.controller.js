@@ -49,7 +49,7 @@ sap.ui.define(
         const sType = encodeURIComponent(oObject.TargetObjectType)
         const sName = encodeURIComponent(oObject.TargetObjectName)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: 'R3TR', type: sType, name: sName })
       }
     })
   },

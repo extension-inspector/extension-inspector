@@ -122,7 +122,7 @@
           "target": "objectsListView"
         },
         {
-          "pattern": "objects/{type}/{name}",
+          "pattern": "objects/{program}/{type}/{name}",
           "name": "objectsDetailView",
           "target": "objectsDetailView"
         },

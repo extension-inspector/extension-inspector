@@ -26,8 +26,9 @@ sap.ui.define(
       onObjectsTableRowSelectionChange: function (oEvent) {
         const oPressedObject = oEvent.getParameter("rowContext").getObject()
         this.getRouter().navTo("objectsDetailView", {
-          type: oPressedObject.ABAPObjectType.replaceAll("/", "."),
-          name: oPressedObject.ABAPObject.replaceAll("/", "."),
+          program: encodeURIComponent(oPressedObject.ProgramId),
+          type: encodeURIComponent(oPressedObject.ABAPObjectType),
+          name: encodeURIComponent(oPressedObject.ABAPObject),
         })
       },
 

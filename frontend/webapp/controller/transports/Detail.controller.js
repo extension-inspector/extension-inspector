@@ -22,10 +22,11 @@ sap.ui.define(
 
       onEntryRowPress(oEvent) {
         const oObject = oEvent.getParameter("bindingContext").getObject()
+        const sProgram = encodeURIComponent(oObject.ProgramId)
         const sType = encodeURIComponent(oObject.ABAPObjectType)
         const sName = encodeURIComponent(oObject.ABAPObject)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: sProgram, type: sType, name: sName })
       },
 
       onPressParentRequest(oEvent) {
