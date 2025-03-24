@@ -30,6 +30,13 @@ sap.ui.define(
         })
       },
 
+      onPressPersonResponsible(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sName = encodeURIComponent(oObject.PersonResponsible)
+
+        this.getAppComponent().getRouter().navTo("developersDetailView", { name: sName })
+      },
+
       onPressCurrentlyLockedTag: function (oEvent) {
         const sLockedInTransport = this.getView().getBindingContext().getObject().LockedInTransport
         this.oRouter.navTo("transportsDetailView", {

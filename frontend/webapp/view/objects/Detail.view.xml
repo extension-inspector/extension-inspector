@@ -148,12 +148,13 @@
                         />
                         <m:Link
                             text="{
-                                            parts: [
-                                            {path: 'PersonResponsible'},
-                                            {path: 'PersonResponsibleFullname'}
-                                            ],
-                                            formatter: '.formatter.formatIdAndDescription'
-                                        }"
+                                    parts: [
+                                        {path: 'PersonResponsible'},
+                                        {path: 'PersonResponsibleFullname'}
+                                    ],
+                                    formatter: '.formatter.formatIdAndDescription'
+                                }"
+                            press=".onPressPersonResponsible"
                         />
                     </m:HBox>
 
