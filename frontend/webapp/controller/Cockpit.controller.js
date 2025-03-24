@@ -43,6 +43,14 @@ sap.ui.define(
           oItem.addContent(oFragment)
         })
       },
+
+      onPressItemMostAccessedObjects: function(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sType = encodeURIComponent(oObject.TargetObjectType)
+        const sName = encodeURIComponent(oObject.TargetObjectName)
+
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { type: sType, name: sName })
+      }
     })
   },
 )
