@@ -21,7 +21,7 @@
             <ObjectPageDynamicHeaderTitle>
                 <expandedHeading>
                     <m:Title
-                        text="{Fullname}"
+                        text="{Developer}"
                         wrapping="true"
                     />
                 </expandedHeading>
@@ -29,19 +29,19 @@
                 <snappedHeading>
                     <m:VBox>
                         <m:Title
-                            text="{Fullname}"
+                            text="{Developer}"
                             wrapping="true"
                         />
-                        <m:Label text="{Developer}" />
+                        <m:Label text="{Fullname}" />
                     </m:VBox>
                 </snappedHeading>
 
                 <expandedContent>
-                    <m:Text text="{Developer}" />
+                    <m:Text text="{Fullname}" />
                 </expandedContent>
 
                 <snappedTitleOnMobile>
-                    <m:Title text="{Developer}" />
+                    <m:Title text="{Fullname}" />
                 </snappedTitleOnMobile>
             </ObjectPageDynamicHeaderTitle>
         </headerTitle>
