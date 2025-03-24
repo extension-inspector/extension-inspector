@@ -70,7 +70,15 @@
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <m:Label text="Owner" />
-                    <m:Text text="{OwnerFullname} ({Owner})" />
+                    <m:Text
+                        text="{
+                                parts: [
+                                    {path: 'Owner'},
+                                    {path: 'OwnerFullname'}
+                                ],
+                                formatter: '.formatter.formatIdAndDescription'
+                            }"
+                    />
                 </layout:VerticalLayout>
                 <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                     <m:Label text="Status" />
@@ -132,7 +140,13 @@
                                         width="25em"
                                     >
                                         <m:Link
-                                            text="{OwnerFullname} ({Owner})"
+                                            text="{
+                                                parts: [
+                                                    {path: 'Owner'},
+                                                    {path: 'OwnerFullname'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
                                             press=".onPressOwner"
                                         />
                                     </macrosTable:Column>
@@ -223,7 +237,13 @@
                                         placement="After"
                                     >
                                         <m:Link
-                                            text="{PersonResponsibleFullname} ({PersonResponsible})"
+                                            text="{
+                                                parts: [
+                                                    {path: 'PersonResponsible'},
+                                                    {path: 'PersonResponsibleFullname'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
                                             press=".onPressCreatedBy"
                                         />
                                     </macrosTable:Column>

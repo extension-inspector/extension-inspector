@@ -249,14 +249,26 @@
                                 >
                                     <cells>
                                         <Text
-                                            text="{ABAPObjectType} ({ABAPObjectTypeName})"
+                                            text="{
+                                                parts: [
+                                                    {path: 'ABAPObjectType'},
+                                                    {path: 'ABAPObjectTypeName'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
                                         />
                                         <ObjectIdentifier
                                             title="{ABAPObject}"
                                             text="{ABAPObjectDescription}"
                                         />
                                         <Link
-                                            text="{PersonResponsibleFullname} ({PersonResponsible})"
+                                            text="{
+                                                parts: [
+                                                    {path: 'PersonResponsible'},
+                                                    {path: 'PersonResponsibleFullname'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
                                             press=".onPressCreatedBy"
                                         />
                                         <Text text="{CreatedOn}" />

@@ -1,16 +1,19 @@
 sap.ui.define(
   [
     "sap/fe/core/PageController",
+    "com/extension-inspector/extension-inspector/model/formatter",
     "sap/ui/model/json/JSONModel",
     "sap/m/Label",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/comp/smartvariants/PersonalizableInfo",
   ],
-  function (PageController, JSONModel, Label, Filter, FilterOperator, PersonalizableInfo) {
+  function (PageController, formatter, JSONModel, Label, Filter, FilterOperator, PersonalizableInfo) {
     "use strict"
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.developers.List", {
+      formatter: formatter,
+      
       onInit: function () {
         PageController.prototype.onInit.apply(this)
       },

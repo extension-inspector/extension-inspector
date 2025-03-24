@@ -133,7 +133,13 @@
                                         width="25em"
                                     >
                                         <m:Link
-                                            text="{OwnerFullname} ({Owner})"
+                                            text="{
+                                                parts: [
+                                                    {path: 'Owner'},
+                                                    {path: 'OwnerFullname'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
                                             press=".onPressOwner"
                                         />
                                     </macrosTable:Column>

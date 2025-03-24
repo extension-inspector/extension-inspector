@@ -24,7 +24,13 @@
             <ObjectPageDynamicHeaderTitle>
                 <breadcrumbs>
                     <m:Breadcrumbs
-                        currentLocationText="{ABAPObjectTypeName} ({ABAPObjectType})"
+                        currentLocationText="{
+                                parts: [
+                                    {path: 'ABAPObjectType'},
+                                    {path: 'ABAPObjectTypeName'}
+                                ],
+                                formatter: '.formatter.formatIdAndDescription'
+                            }"
                     />
                 </breadcrumbs>
 
