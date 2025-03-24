@@ -44,6 +44,7 @@ define root view entity ZEI_C_OBJECTS
           @ObjectModel.text.element: [ 'PersonResponsibleFullname' ]
           @Search.defaultSearchElement: true
           @UI.lineItem: [{hidden: true}]
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZEI_C_Developers', element: 'Developer' } }]
           PersonResponsible,
 
           PersonResponsibleFullname,
