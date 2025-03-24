@@ -79,4 +79,4 @@ define root view entity ZEI_I_DevObjects
       _ReleaseInfo
 }
 where
-  ProgramId = 'R3TR'
+  ABAPObject is not initial
