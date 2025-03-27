@@ -26,15 +26,22 @@
 > [!WARNING]  
 > This project is currently under **very active** development. Expect bugs and breaking changes.
 
-<br />
 
 ## About The Project
 <img src="images/ei-screenshots.png" title="Screenshots">
 <br />
-<br />
-Text about the project
 
-<br />
+### What this tool can do
+- List all **development objects, developers and transports** and navigate between them
+- Check **class diagrams** of your extensions and understand how they interconnect
+- Visualize the **hierarchies of data definitions**, service definitions and bindings
+
+### What this tool is planned to become
+- Combining loose development objects into **building blocks** to get a better understand of your system (e.g. RAP-based Odata Services, BAdI Implementations, ...)
+- A **professional search** feature, that lets you search objects based on their attributes and links between each other (e.g. find classes which are accessing from data definitions that do have an access control, ...)
+- A **extension map** of the whole system, giving you better control on how to evolve your extension landscape
+- Professional **KPI's** to monitor developments, cloud readiness, and much more
+
 
 ## Prerequisits
 _Minimum requirements to make use of this tool._
@@ -42,7 +49,6 @@ _Minimum requirements to make use of this tool._
 - Application Jobs must be enabled and configured
 - [ABAPGit](https://github.com/abapGit/abapGit) must be available on your system for the inital setup
 
-<br />
 
 ## Getting Started
 _Follow the instructions below to get started with the app on your own S/4HANA System._
@@ -73,7 +79,6 @@ _Generating the caches is necessary for the app to be able to show diagrams and 
 1. Open the Standard App 'Application Jobs' (F1240)
 2. Create a one-time or scheduled job based on the job template `ZEI_REFRESH_OBJECTCACHE_JT`
 
-<br />
 
 ## Third Party Libraries in this Project
 
