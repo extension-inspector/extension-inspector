@@ -73,6 +73,13 @@ CLASS zei_cl_co_utils IMPLEMENTATION.
             r_description = behavior_def->content( )->get_short_description( ).
           WHEN 'DDLS'.
             DATA(data_definition) = xco_cds=>data_definition( CONV #( i_object ) ).
+
+            " handle edge case that data definitions of type extend dont support a description (#5)
+            DATA(type) = data_definition->get_type( ).
+            IF type IS NOT INITIAL AND type->value = 'E'.
+              RETURN.
+            ENDIF.
+
             r_description = data_definition->view( )->content( )->get_short_description( ).
           WHEN 'TABL'.
             DATA(table) = xco_abap_dictionary=>table( CONV #( i_object ) ).
