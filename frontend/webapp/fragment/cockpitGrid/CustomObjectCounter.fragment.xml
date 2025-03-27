@@ -1,10 +1,14 @@
 <core:FragmentDefinition
-    xmlns="sap.m" 
-    xmlns:core="sap.ui.core" 
-    xmlns:l="sap.ui.layout" 
-    xmlns:f="sap.ui.layout.form" 
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+>
     <VBox class="sapUiSmallMargin">
-        <ObjectStatus text="{ path: '/Objects/$count', parameters: { $filter: 'startswith(ABAPObject,\'Z\')' } }" class="sapMObjectStatusLarge"/>
+        <ObjectStatus
+            text="{ path: '/Objects/$count', parameters: { $filter: 'startswith(ABAPObject,\'Z\') or startswith(ABAPObject,\'Y\')' } }"
+            class="sapMObjectStatusLarge"
+        />
     </VBox>
 </core:FragmentDefinition>
