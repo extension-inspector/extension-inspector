@@ -19,6 +19,7 @@ define root view entity ZEI_I_DevObjectVersionsCnsldt
        when 'METH' then 'CLAS'
        when 'REPT' then 'PROG'
        when 'REPS' then 'PROG'
+       when 'VIED' then 'VIEW'
        else ABAPObjectType
      end                            as ABAPObjectType,
        //  key VersionNumber,
