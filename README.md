@@ -47,7 +47,7 @@
 _Minimum requirements to make use of this tool._
 - S/4HANA on-premise or private cloud edition at least in release 2022
 - Application Jobs must be enabled and configured
-- [ABAPGit](https://github.com/abapGit/abapGit) must be available on your system for the inital setup
+- [ABAPGit](https://github.com/abapGit/abapGit) must be available on your system in version 1.130.0 or higher for the inital setup
 
 
 ## Getting Started
