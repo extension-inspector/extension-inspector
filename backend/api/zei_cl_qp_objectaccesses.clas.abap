@@ -40,7 +40,7 @@ CLASS zei_cl_qp_objectaccesses IMPLEMENTATION.
           APPEND CORRESPONDING #( <environment> ) TO objectaccesses.
         ENDLOOP.
 
-        DATA(scts_objects) = zs4ei_cl_co_utils=>get_abap_object_types( ).
+        DATA(scts_objects) = zei_cl_co_utils=>get_abap_object_types( ).
 
         LOOP AT objectaccesses ASSIGNING FIELD-SYMBOL(<objectaccess>).
           <objectaccess>-TypeName = VALUE #( scts_objects[ objecttype = <objectaccess>-Type ]-objecttypetext OPTIONAL ).
