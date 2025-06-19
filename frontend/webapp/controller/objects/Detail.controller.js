@@ -56,7 +56,7 @@ sap.ui.define(
 
       onPressTransportTimelineItem(oEvent) {
         const oObject = oEvent.getSource().getBindingContext().getObject()
-        const sRequest = oObject?.VersionRequestNumber
+        const sRequest = encodeURIComponent(oObject?.VersionRequestNumber)
 
         this.getAppComponent().getRouter().navTo("transportsDetailView", { transport: sRequest })
       },
