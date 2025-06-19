@@ -33,6 +33,7 @@ define root view entity ZEI_I_DevObjects
   association [0..1] to ZEI_I_ReleaseInfoDistinct     as _ReleaseSuccessor  on  _ReleaseSuccessor.ABAPObjectType      = $projection.ABAPObjectType
                                                                             and _ReleaseSuccessor.ABAPObject          = $projection.ABAPObject
                                                                             and _ReleaseSuccessor.SuccessorObjectName is not initial
+  association [0..*] to ZEI_I_DevObjects              as _PackageSubObjects on  _PackageSubObjects.ParentABAPPackage = $projection.ABAPObject
 {
   key ProgramId,
   key ABAPObjectType,
@@ -76,7 +77,8 @@ define root view entity ZEI_I_DevObjects
       _AccessTo,
       _AccessFrom,
       _CnsldtVersions,
-      _ReleaseInfo
+      _ReleaseInfo,
+      _PackageSubObjects
 }
 where
   ABAPObject is not initial

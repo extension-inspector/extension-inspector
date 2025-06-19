@@ -104,9 +104,11 @@ define root view entity ZEI_C_OBJECTS
           _ParentABAPPackage,
           _PersonResponsible,
           _TransportEntries,
-          _AccessTo       : redirected to ZEI_C_ObjectRelations,
-          _AccessFrom     : redirected to ZEI_C_ObjectRelations,
-          _CnsldtVersions : redirected to ZEI_C_DevObjectVersionCnsldt,
-          _ReleaseInfo    : redirected to ZEI_C_ReleaseInfo
+          _AccessTo          : redirected to ZEI_C_ObjectRelations,
+          _AccessFrom        : redirected to ZEI_C_ObjectRelations,
+          _CnsldtVersions    : redirected to ZEI_C_DevObjectVersionCnsldt,
+          _ReleaseInfo       : redirected to ZEI_C_ReleaseInfo,
+          _PackageSubObjects : redirected to ZEI_C_OBJECTS
+
 
 }
