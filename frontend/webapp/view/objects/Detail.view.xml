@@ -266,7 +266,7 @@
                                     <commons:TimelineItem
                                         id="idTemplateItem"
                                         icon="{=%{LockedIn} ? 'sap-icon://edit' : 'sap-icon://shipping-status'}"
-                                        select=".onPressItems"
+                                        select=".onPressTransportTimelineItem"
                                         dateTime="{CreatedOn} {CreatedAt}"
                                         title="{CreatedBy}"
                                         userName="{VersionRequestNumber}"

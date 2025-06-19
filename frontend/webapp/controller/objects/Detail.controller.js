@@ -54,6 +54,13 @@ sap.ui.define(
         this.getAppComponent().getRouter().navTo("objectsDetailView", { program: "R3TR", type: sType, name: sName })
       },
 
+      onPressTransportTimelineItem(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sRequest = oObject?.VersionRequestNumber
+
+        this.getAppComponent().getRouter().navTo("transportsDetailView", { transport: sRequest })
+      },
+
       onRAPDiagramLayersChange: function (oEvent) {
         this.getView().byId("RAPDiagram").setLayers(oEvent.getParameter("value"))
       },
