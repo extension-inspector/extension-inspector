@@ -419,6 +419,140 @@
                     </ObjectPageSubSection>
                     <ObjectPageSubSection
                         titleUppercase="false"
+                        title="{i18n>objects.detail.section.packagechildobjects}"
+                        visible="{= ['DEVC'].includes(%{ABAPObjectType}) }"
+                    >
+                        <blocks>
+                            <macros:Table
+                                metaPath="_PackageSubObjects/@com.sap.vocabularies.UI.v1.LineItem"
+                                id="PackageChildObjects"
+                                selectionMode="Single"
+                                widthIncludingColumnHeader="false"
+                                type="ResponsiveTable"
+                                rowCountMode="Auto"
+                                enableExport="true"
+                                enableAutoColumnWidth="true"
+                                personalization="true"
+                                rowPress=".onPressAccessedObjectsRow"
+                            >
+                                <macros:layoutData>
+                                    <m:FlexItemData
+                                        growFactor="1"
+                                        baseSize="0%"
+                                    />
+                                </macros:layoutData>
+                                <macros:columns>
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.ObjectType}"
+                                        importance="High"
+                                        key="ABAPObjectTypeCustom"
+                                        anchor="DataField::CreatedOn"
+                                        placement="Before"
+                                        width="20em"
+                                    >
+                                        <m:HBox>
+                                            <m:Image
+                                                src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }"
+                                                height="30px"
+                                                class="sapUiTinyMarginEnd"
+                                            />
+                                            <m:FlexBox
+                                                height="30px"
+                                                alignItems="Center"
+                                                justifyContent="Start"
+                                            >
+                                                <m:Text
+                                                    text="{ABAPObjectTypeName}"
+                                                />
+                                            </m:FlexBox>
+                                        </m:HBox>
+                                    </macrosTable:Column>
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.Object}"
+                                        importance="High"
+                                        key="ABAPObjectCustom"
+                                        anchor="ABAPObjectTypeCustom"
+                                        placement="After"
+                                        width="25em"
+                                    >
+                                        <m:ObjectIdentifier
+                                            title="{ABAPObject}"
+                                            text="{ABAPObjectDescription}"
+                                        />
+                                    </macrosTable:Column>
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.ParentABAPPackage}"
+                                        key="ParentABAPPackageCustom"
+                                        anchor="DataField::ABAPObjectDescription"
+                                        placement="After"
+                                        width="17em"
+                                    >
+                                        <m:Link
+                                            text="{ParentABAPPackage}"
+                                            press=".onPressParentPackage"
+                                        />
+                                    </macrosTable:Column>
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.Author}"
+                                        key="AuthorCustom"
+                                        anchor="ABAPObjectCustom"
+                                        width="12em"
+                                        placement="After"
+                                    >
+                                        <m:Link
+                                            text="{
+                                                parts: [
+                                                {path: 'PersonResponsible'},
+                                                {path: 'PersonResponsibleFullname'}
+                                                ],
+                                                formatter: '.formatter.formatIdAndDescription'
+                                            }"
+                                            press=".onPressCreatedBy"
+                                        />
+                                    </macrosTable:Column>
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.IsDeleted}"
+                                        importance="High"
+                                        width="7em"
+                                        key="IsDeletedCustom"
+                                    >
+                                        <m:GenericTag
+                                            text="{IsDeleted}"
+                                            design="StatusIconHidden"
+                                            status="{= %{IsDeleted} ? 'Error' : 'None'}"
+                                        />
+                                    </macrosTable:Column>
+
+                                    <macrosTable:Column
+                                        header="{i18n>objects.list.column.releaseState}"
+                                        width="7em"
+                                        anchor="IsDeletedCustom"
+                                        placement="Before"
+                                        key="ReleaseStateCustom"
+                                    >
+                                        <commons:MicroProcessFlow>
+                                            <commons:content>
+                                                <commons:MicroProcessFlowItem
+                                                    showSeparator="false"
+                                                    icon="sap-icon://cloud"
+                                                    state="{= %{ReleasedForCloudDevelopment} ? 'Success' : 'None'}"
+                                                    title="{i18n>misc.ReleasedForUseInCloudDevelopment}"
+                                                />
+                                                <commons:MicroProcessFlowItem
+                                                    showSeparator="false"
+                                                    icon="sap-icon://key-user-settings"
+                                                    state="{= %{ReleasedForKeyUserApps} ? 'Success' : 'None'}"
+                                                    title="{i18n>misc.ReleasedForUseInKeyUserApps}"
+                                                />
+                                            </commons:content>
+                                        </commons:MicroProcessFlow>
+                                    </macrosTable:Column>
+                                </macros:columns>
+                            </macros:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                    <ObjectPageSubSection
+                        titleUppercase="false"
                         title="{i18n>objects.detail.section.accessFrom}"
                         visible="{= ['CLAS', 'INTF', 'PROG'].includes(%{ABAPObjectType}) }"
                     >
@@ -469,6 +603,7 @@
                     <ObjectPageSubSection
                         titleUppercase="false"
                         title="{i18n>objects.detail.section.releaseContracts}"
+                        visible="{= ['DEVC'].includes(%{ABAPObjectType}) !== true }"
                     >
                         <blocks>
                             <macros:Table
