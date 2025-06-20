@@ -166,6 +166,10 @@ sap.ui.define(
         })
 
         for (const oUniqueObject of aUniqueObjects) {
+          if (!["CLAS", "INTF"].includes(oUniqueObject.SourceObjectType)) {
+            continue
+          }
+
           sDiagramSyntax += this._getDefinitionSyntax(oUniqueObject, aDefinitions)
         }
 
