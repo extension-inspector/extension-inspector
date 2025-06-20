@@ -59,6 +59,12 @@ CLASS zei_cl_clas_cache IMPLEMENTATION.
                       i_tgt_name = CONV #( <interface>->name )
                       i_relation = 'RLZTN' ).
     ENDLOOP.
+
+    IF definition_content-for_behavior_of IS NOT INITIAL.
+      me->add_to_rel( i_tgt_type = 'BDEF'
+                      i_tgt_name = CONV #( definition_content-for_behavior_of->name )
+                      i_relation = 'BDEF_IMPL' ).
+    ENDIF.
   ENDMETHOD.
 
   METHOD _handle_sections.

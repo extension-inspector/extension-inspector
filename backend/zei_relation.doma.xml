@@ -133,6 +133,18 @@
      <DOMVALUE_L>DDLS_BDEF</DOMVALUE_L>
      <DDTEXT>has Behavior Definition</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0021</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>BDEF_EXT</DOMVALUE_L>
+     <DDTEXT>Behavior Extended by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0022</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>BDEF_IMPL</DOMVALUE_L>
+     <DDTEXT>Behavior Implemented by</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
