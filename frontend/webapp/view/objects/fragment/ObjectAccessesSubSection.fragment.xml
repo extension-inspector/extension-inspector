@@ -1,0 +1,106 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+>
+    <ObjectPageSubSection
+        titleUppercase="false"
+        title="{i18n>objects.detail.section.accessTo}"
+        visible="{= ['CLAS', 'INTF', 'PROG'].includes(%{ABAPObjectType}) }"
+    >
+        <blocks>
+            <macros:Table
+                metaPath="_AccessTo/@com.sap.vocabularies.UI.v1.LineItem"
+                id="AccessToTable"
+                selectionMode="Single"
+                widthIncludingColumnHeader="false"
+                type="ResponsiveTable"
+                rowCountMode="Auto"
+                enableExport="true"
+                enableAutoColumnWidth="true"
+                personalization="true"
+                rowPress=".onPressAccessedObjectsRow"
+            >
+                <macros:layoutData>
+                    <m:FlexItemData
+                        growFactor="1"
+                        baseSize="0%"
+                    />
+                </macros:layoutData>
+                <macros:columns>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.section.accessTo.column.ObjectType}"
+                        importance="High"
+                        key="TargetObjectTypeCustom"
+                        width="20em"
+                    >
+                        <m:HBox>
+                            <m:Text text="{TargetObjectType}" />
+                        </m:HBox>
+                    </macrosTable:Column>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.section.accessTo.column.ObjectName}"
+                        importance="High"
+                        key="TargetObjectNameCustom"
+                        width="20em"
+                    >
+                        <m:HBox>
+                            <m:Text text="{TargetObjectName}" />
+                        </m:HBox>
+                    </macrosTable:Column>
+                </macros:columns>
+            </macros:Table>
+        </blocks>
+    </ObjectPageSubSection>
+    <ObjectPageSubSection
+        titleUppercase="false"
+        title="{i18n>objects.detail.section.accessFrom}"
+        visible="{= ['CLAS', 'INTF', 'PROG'].includes(%{ABAPObjectType}) }"
+    >
+        <blocks>
+            <macros:Table
+                metaPath="_AccessFrom/@com.sap.vocabularies.UI.v1.LineItem"
+                id="AccessFromTable"
+                selectionMode="Single"
+                widthIncludingColumnHeader="false"
+                type="ResponsiveTable"
+                rowCountMode="Auto"
+                enableExport="true"
+                enableAutoColumnWidth="true"
+                personalization="true"
+                rowPress=".onPressAccessedObjectsRow"
+            >
+                <macros:layoutData>
+                    <m:FlexItemData
+                        growFactor="1"
+                        baseSize="0%"
+                    />
+                </macros:layoutData>
+                <macros:columns>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.section.accessFrom.column.ObjectType}"
+                        importance="High"
+                        key="SourceObjectTypeCustom"
+                        width="20em"
+                    >
+                        <m:HBox>
+                            <m:Text text="{SourceObjectType}" />
+                        </m:HBox>
+                    </macrosTable:Column>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.section.accessFrom.column.ObjectName}"
+                        importance="High"
+                        key="SourceObjectNameCustom"
+                        width="20em"
+                    >
+                        <m:HBox>
+                            <m:Text text="{SourceObjectName}" />
+                        </m:HBox>
+                    </macrosTable:Column>
+                </macros:columns>
+            </macros:Table>
+        </blocks>
+    </ObjectPageSubSection>
+</core:FragmentDefinition>

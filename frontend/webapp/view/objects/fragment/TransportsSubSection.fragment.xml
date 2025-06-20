@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:commons="sap.suite.ui.commons"
+>
+    <ObjectPageSubSection
+        titleUppercase="false"
+        title="{i18n>objects.detail.section.transports}"
+    >
+        <blocks>
+            <commons:Timeline
+                id="idTimeline"
+                axisOrientation="Horizontal"
+                enableDoubleSided="true"
+                lazyLoading="true"
+                content="{_CnsldtVersions}"
+                noDataText="{i18n>objects.detail.section.transports.noTransportsFound}"
+                showHeaderBar="false"
+                showIcons="true"
+                sortOldestFirst="true"
+            >
+                <commons:content>
+                    <commons:TimelineItem
+                        id="idTemplateItem"
+                        icon="{=%{LockedIn} ? 'sap-icon://edit' : 'sap-icon://shipping-status'}"
+                        select=".onPressTransportTimelineItem"
+                        dateTime="{CreatedOn} {CreatedAt}"
+                        title="{CreatedBy}"
+                        userName="{VersionRequestNumber}"
+                        status="{=%{LockedIn} ? 'Warning' : 'Information'}"
+                    />
+                </commons:content>
+            </commons:Timeline>
+        </blocks>
+    </ObjectPageSubSection>
+</core:FragmentDefinition>

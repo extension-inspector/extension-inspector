@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:macros="sap.fe.macros"
+    xmlns:macrosTable="sap.fe.macros.table"
+    xmlns:tnt="sap.tnt"
+>
+    <ObjectPageSubSection
+        titleUppercase="false"
+        title="{i18n>objects.detail.section.releaseContracts}"
+        visible="{= ['DEVC'].includes(%{ABAPObjectType}) !== true }"
+    >
+        <blocks>
+            <macros:Table
+                metaPath="_ReleaseInfo/@com.sap.vocabularies.UI.v1.LineItem"
+                id="ReleaseInfoTable"
+                selectionMode="Single"
+                widthIncludingColumnHeader="false"
+                type="ResponsiveTable"
+                rowCountMode="Auto"
+                enableExport="true"
+                enableAutoColumnWidth="true"
+                personalization="true"
+            >
+                <macros:layoutData>
+                    <m:FlexItemData
+                        growFactor="1"
+                        baseSize="0%"
+                    />
+                </macros:layoutData>
+                <macros:columns>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.releaseInfoTable.column.contract}"
+                        importance="High"
+                        key="ReleaseStateCustom"
+                        width="20em"
+                    >
+                        <m:FlexBox
+                            direction="Row"
+                            alignItems="Center"
+                        >
+                            <m:Text
+                                text="{ path: 'CompatibilityContract', formatter: '.formatter.getTextForReleaseContract' }"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <tnt:InfoLabel
+                                text="{ path: 'ReleaseState', formatter: '.formatter.getI18nText' }"
+                                colorScheme="{=%{ReleaseState}.startsWith('RELEASE') ? 8 : 2}"
+                                icon="{=%{ReleaseState}.startsWith('RELEASE') ? 'sap-icon://accept' : 'sap-icon://decline'}"
+                            />
+                        </m:FlexBox>
+                    </macrosTable:Column>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.releaseInfoTable.column.contract}"
+                        importance="High"
+                        key="ReleaseStateCustom"
+                        width="20em"
+                    >
+                        <m:FlexBox
+                            direction="Row"
+                            alignItems="Center"
+                        >
+                            <m:Text
+                                text="{ path: 'CompatibilityContract', formatter: '.formatter.getTextForReleaseContract' }"
+                            />
+                            <m:Button
+                                icon="sap-icon://sys-help"
+                                type="Transparent"
+                                press=".formatter.openURLForContract(${CompatibilityContract})"
+                                class="sapUiTinyMarginBegin sapUiTinyMarginEnd"
+                            />
+                            <tnt:InfoLabel
+                                text="{ path: 'ReleaseState', formatter: '.formatter.getI18nText' }"
+                                colorScheme="{=%{ReleaseState}.startsWith('RELEASE') ? 8 : 2}"
+                                icon="{=%{ReleaseState}.startsWith('RELEASE') ? 'sap-icon://accept' : 'sap-icon://decline'}"
+                            />
+                        </m:FlexBox>
+                    </macrosTable:Column>
+                    <macrosTable:Column
+                        header="{i18n>objects.detail.releaseInfoTable.column.successor}"
+                        importance="High"
+                        key="SuccessorCustom"
+                    >
+                        <m:Text text="{SuccessorObjectName}" />
+                    </macrosTable:Column>
+                </macros:columns>
+            </macros:Table>
+        </blocks>
+    </ObjectPageSubSection>
+</core:FragmentDefinition>

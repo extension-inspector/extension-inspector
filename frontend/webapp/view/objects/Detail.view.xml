@@ -2,16 +2,12 @@
     controllerName="com.extension-inspector.extension-inspector.controller.objects.Detail"
     xmlns:html="http://www.w3.org/1999/xhtml"
     displayBlock="true"
-    xmlns:macros="sap.fe.macros"
-    xmlns:macrosTable="sap.fe.macros.table"
     xmlns:m="sap.m"
     xmlns:layout="sap.ui.layout"
     xmlns="sap.uxap"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:tnt="sap.tnt"
     xmlns:core="sap.ui.core"
     xmlns:commons="sap.suite.ui.commons"
-    xmlns:custom="com.extension-inspector.extension-inspector.control"
 >
     <ObjectPageLayout
         id="ObjectPageLayout"
@@ -165,16 +161,6 @@
                         />
                         <m:Text text="{CreatedOn}" />
                     </m:HBox>
-
-                    <!--<m:HBox class="sapUiTinyMarginBottom">
-						<m:Label text="{i18n>objects.detail.header.changedBy}:" class="sapUiTinyMarginEnd"/>
-						<m:Link text="TODO" />
-					</m:HBox>
-
-					<m:HBox renderType="Bare">
-						<m:Label text="{i18n>objects.detail.header.changedOn}:" class="sapUiTinyMarginEnd"/>
-						<m:Text text="TODO" />
-					</m:HBox>-->
                 </m:VBox>
 
                 <m:VBox class="sapUiSmallMarginEnd sapUiSmallMarginBottom">
@@ -246,459 +232,37 @@
                 title="{i18n>objects.detail.section.general}"
             >
                 <subSections>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.transports}"
-                    >
-                        <blocks>
-                            <commons:Timeline
-                                id="idTimeline"
-                                axisOrientation="Horizontal"
-                                enableDoubleSided="true"
-                                lazyLoading="true"
-                                content="{_CnsldtVersions}"
-                                noDataText="{i18n>objects.detail.section.transports.noTransportsFound}"
-                                showHeaderBar="false"
-                                showIcons="true"
-                                sortOldestFirst="true"
-                            >
-                                <commons:content>
-                                    <commons:TimelineItem
-                                        id="idTemplateItem"
-                                        icon="{=%{LockedIn} ? 'sap-icon://edit' : 'sap-icon://shipping-status'}"
-                                        select=".onPressTransportTimelineItem"
-                                        dateTime="{CreatedOn} {CreatedAt}"
-                                        title="{CreatedBy}"
-                                        userName="{VersionRequestNumber}"
-                                        status="{=%{LockedIn} ? 'Warning' : 'Information'}"
-                                    />
-                                </commons:content>
-                            </commons:Timeline>
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.objectDiagram}"
-                        visible="{= ['CLAS', 'INTF'].includes(%{ABAPObjectType}) }"
-                    >
-                        <blocks>
-                            <m:VBox visible="{HasRelations}">
-                                <m:OverflowToolbar id="otb12">
-                                    <m:StepInput
-                                        value="1"
-                                        min="1"
-                                        max="100"
-                                        width="10rem"
-                                        textAlign="Center"
-                                        description="Layers"
-                                        change=".onClassDiagramLayersChange"
-                                    />
-                                    <m:ToolbarSeparator />
-                                    <m:StepInput
-                                        value="1.0"
-                                        min="0.1"
-                                        max="10"
-                                        step="0.1"
-                                        width="10rem"
-                                        textAlign="Center"
-                                        description="Zoom"
-                                        displayValuePrecision="1"
-                                        change=".onClassDiagramZoomChange"
-                                    />
-                                    <m:ToolbarSpacer />
-                                </m:OverflowToolbar>
-                                <custom:ClassDiagram
-                                    id="ClassDiagram"
-                                    type="{ABAPObjectType}"
-                                    object="{ABAPObject}"
-                                    layers="1"
-                                    zoom="1"
-                                />
-                            </m:VBox>
-                            <m:Text
-                                text="No relations are currently available"
-                                class="sapUiTinyMargin sapUiSmallMarginTop sapUiSmallMarginBottom sapThemeFontSize"
-                                visible="{=!%{HasRelations}}"
-                            />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.objectDiagram}"
-                        visible="{= ['DDLS'].includes(%{ABAPObjectType}) }"
-                    >
-                        <blocks>
-                            <m:VBox visible="{HasRelations}">
-                                <m:OverflowToolbar id="otb1">
-                                    <m:StepInput
-                                        value="1"
-                                        min="1"
-                                        max="100"
-                                        width="10rem"
-                                        textAlign="Center"
-                                        description="Layers"
-                                        change=".onRAPDiagramLayersChange"
-                                    />
-                                    <m:ToolbarSeparator />
-                                    <m:StepInput
-                                        value="1.0"
-                                        min="0.1"
-                                        max="10"
-                                        step="0.1"
-                                        width="10rem"
-                                        textAlign="Center"
-                                        description="Zoom"
-                                        displayValuePrecision="1"
-                                        change=".onRAPDiagramZoomChange"
-                                    />
-                                    <m:ToolbarSpacer />
-                                </m:OverflowToolbar>
-                                <custom:RAPDiagram
-                                    id="RAPDiagram"
-                                    type="{ABAPObjectType}"
-                                    object="{ABAPObject}"
-                                    layers="1"
-                                    zoom="1"
-                                />
-                            </m:VBox>
-                            <m:Text
-                                text="No relations are currently available"
-                                class="sapUiTinyMargin sapUiSmallMarginTop sapUiSmallMarginBottom sapThemeFontSize"
-                                visible="{=!%{HasRelations}}"
-                            />
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.accessTo}"
-                        visible="{= ['CLAS', 'INTF', 'PROG'].includes(%{ABAPObjectType}) }"
-                    >
-                        <blocks>
-                            <macros:Table
-                                metaPath="_AccessTo/@com.sap.vocabularies.UI.v1.LineItem"
-                                id="AccessToTable"
-                                selectionMode="Single"
-                                widthIncludingColumnHeader="false"
-                                type="ResponsiveTable"
-                                rowCountMode="Auto"
-                                enableExport="true"
-                                enableAutoColumnWidth="true"
-                                personalization="true"
-                                rowPress=".onPressAccessedObjectsRow"
-                            >
-                                <macros:layoutData>
-                                    <m:FlexItemData
-                                        growFactor="1"
-                                        baseSize="0%"
-                                    />
-                                </macros:layoutData>
-                                <macros:columns>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.section.accessTo.column.ObjectType}"
-                                        importance="High"
-                                        key="TargetObjectTypeCustom"
-                                        width="20em"
-                                    >
-                                        <m:HBox>
-                                            <m:Text text="{TargetObjectType}" />
-                                        </m:HBox>
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.section.accessTo.column.ObjectName}"
-                                        importance="High"
-                                        key="TargetObjectNameCustom"
-                                        width="20em"
-                                    >
-                                        <m:HBox>
-                                            <m:Text text="{TargetObjectName}" />
-                                        </m:HBox>
-                                    </macrosTable:Column>
-                                </macros:columns>
-                            </macros:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.packagechildobjects}"
-                        visible="{= ['DEVC'].includes(%{ABAPObjectType}) }"
-                    >
-                        <blocks>
-                            <macros:Table
-                                metaPath="_PackageSubObjects/@com.sap.vocabularies.UI.v1.LineItem"
-                                id="PackageChildObjects"
-                                selectionMode="Single"
-                                widthIncludingColumnHeader="false"
-                                type="ResponsiveTable"
-                                rowCountMode="Auto"
-                                enableExport="true"
-                                enableAutoColumnWidth="true"
-                                personalization="true"
-                                rowPress=".onPressAccessedObjectsRow"
-                            >
-                                <macros:layoutData>
-                                    <m:FlexItemData
-                                        growFactor="1"
-                                        baseSize="0%"
-                                    />
-                                </macros:layoutData>
-                                <macros:columns>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.ObjectType}"
-                                        importance="High"
-                                        key="ABAPObjectTypeCustom"
-                                        anchor="DataField::CreatedOn"
-                                        placement="Before"
-                                        width="20em"
-                                    >
-                                        <m:HBox>
-                                            <m:Image
-                                                src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }"
-                                                height="30px"
-                                                class="sapUiTinyMarginEnd"
-                                            />
-                                            <m:FlexBox
-                                                height="30px"
-                                                alignItems="Center"
-                                                justifyContent="Start"
-                                            >
-                                                <m:Text
-                                                    text="{ABAPObjectTypeName}"
-                                                />
-                                            </m:FlexBox>
-                                        </m:HBox>
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.Object}"
-                                        importance="High"
-                                        key="ABAPObjectCustom"
-                                        anchor="ABAPObjectTypeCustom"
-                                        placement="After"
-                                        width="25em"
-                                    >
-                                        <m:ObjectIdentifier
-                                            title="{ABAPObject}"
-                                            text="{ABAPObjectDescription}"
-                                        />
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.ParentABAPPackage}"
-                                        key="ParentABAPPackageCustom"
-                                        anchor="DataField::ABAPObjectDescription"
-                                        placement="After"
-                                        width="17em"
-                                    >
-                                        <m:Link
-                                            text="{ParentABAPPackage}"
-                                            press=".onPressParentPackage"
-                                        />
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.Author}"
-                                        key="AuthorCustom"
-                                        anchor="ABAPObjectCustom"
-                                        width="12em"
-                                        placement="After"
-                                    >
-                                        <m:Link
-                                            text="{
-                                                parts: [
-                                                {path: 'PersonResponsible'},
-                                                {path: 'PersonResponsibleFullname'}
-                                                ],
-                                                formatter: '.formatter.formatIdAndDescription'
-                                            }"
-                                            press=".onPressCreatedBy"
-                                        />
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.IsDeleted}"
-                                        importance="High"
-                                        width="7em"
-                                        key="IsDeletedCustom"
-                                    >
-                                        <m:GenericTag
-                                            text="{IsDeleted}"
-                                            design="StatusIconHidden"
-                                            status="{= %{IsDeleted} ? 'Error' : 'None'}"
-                                        />
-                                    </macrosTable:Column>
-
-                                    <macrosTable:Column
-                                        header="{i18n>objects.list.column.releaseState}"
-                                        width="7em"
-                                        anchor="IsDeletedCustom"
-                                        placement="Before"
-                                        key="ReleaseStateCustom"
-                                    >
-                                        <commons:MicroProcessFlow>
-                                            <commons:content>
-                                                <commons:MicroProcessFlowItem
-                                                    showSeparator="false"
-                                                    icon="sap-icon://cloud"
-                                                    state="{= %{ReleasedForCloudDevelopment} ? 'Success' : 'None'}"
-                                                    title="{i18n>misc.ReleasedForUseInCloudDevelopment}"
-                                                />
-                                                <commons:MicroProcessFlowItem
-                                                    showSeparator="false"
-                                                    icon="sap-icon://key-user-settings"
-                                                    state="{= %{ReleasedForKeyUserApps} ? 'Success' : 'None'}"
-                                                    title="{i18n>misc.ReleasedForUseInKeyUserApps}"
-                                                />
-                                            </commons:content>
-                                        </commons:MicroProcessFlow>
-                                    </macrosTable:Column>
-                                </macros:columns>
-                            </macros:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.accessFrom}"
-                        visible="{= ['CLAS', 'INTF', 'PROG'].includes(%{ABAPObjectType}) }"
-                    >
-                        <blocks>
-                            <macros:Table
-                                metaPath="_AccessFrom/@com.sap.vocabularies.UI.v1.LineItem"
-                                id="AccessFromTable"
-                                selectionMode="Single"
-                                widthIncludingColumnHeader="false"
-                                type="ResponsiveTable"
-                                rowCountMode="Auto"
-                                enableExport="true"
-                                enableAutoColumnWidth="true"
-                                personalization="true"
-                                rowPress=".onPressAccessedObjectsRow"
-                            >
-                                <macros:layoutData>
-                                    <m:FlexItemData
-                                        growFactor="1"
-                                        baseSize="0%"
-                                    />
-                                </macros:layoutData>
-                                <macros:columns>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.section.accessFrom.column.ObjectType}"
-                                        importance="High"
-                                        key="SourceObjectTypeCustom"
-                                        width="20em"
-                                    >
-                                        <m:HBox>
-                                            <m:Text text="{SourceObjectType}" />
-                                        </m:HBox>
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.section.accessFrom.column.ObjectName}"
-                                        importance="High"
-                                        key="SourceObjectNameCustom"
-                                        width="20em"
-                                    >
-                                        <m:HBox>
-                                            <m:Text text="{SourceObjectName}" />
-                                        </m:HBox>
-                                    </macrosTable:Column>
-                                </macros:columns>
-                            </macros:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
-                    <ObjectPageSubSection
-                        titleUppercase="false"
-                        title="{i18n>objects.detail.section.releaseContracts}"
-                        visible="{= ['DEVC'].includes(%{ABAPObjectType}) !== true }"
-                    >
-                        <blocks>
-                            <macros:Table
-                                metaPath="_ReleaseInfo/@com.sap.vocabularies.UI.v1.LineItem"
-                                id="ReleaseInfoTable"
-                                selectionMode="Single"
-                                widthIncludingColumnHeader="false"
-                                type="ResponsiveTable"
-                                rowCountMode="Auto"
-                                enableExport="true"
-                                enableAutoColumnWidth="true"
-                                personalization="true"
-                            >
-                                <macros:layoutData>
-                                    <m:FlexItemData
-                                        growFactor="1"
-                                        baseSize="0%"
-                                    />
-                                </macros:layoutData>
-                                <macros:columns>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.releaseInfoTable.column.contract}"
-                                        importance="High"
-                                        key="ReleaseStateCustom"
-                                        width="20em"
-                                    >
-                                        <m:FlexBox
-                                            direction="Row"
-                                            alignItems="Center"
-                                        >
-                                            <m:Text
-                                                text="{ path: 'CompatibilityContract', formatter: '.formatter.getTextForReleaseContract' }"
-                                                class="sapUiTinyMarginEnd"
-                                            />
-                                            <tnt:InfoLabel
-                                                text="{ path: 'ReleaseState', formatter: '.formatter.getI18nText' }"
-                                                colorScheme="{=%{ReleaseState}.startsWith('RELEASE') ? 8 : 2}"
-                                                icon="{=%{ReleaseState}.startsWith('RELEASE') ? 'sap-icon://accept' : 'sap-icon://decline'}"
-                                            />
-                                        </m:FlexBox>
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.releaseInfoTable.column.contract}"
-                                        importance="High"
-                                        key="ReleaseStateCustom"
-                                        width="20em"
-                                    >
-                                        <m:FlexBox
-                                            direction="Row"
-                                            alignItems="Center"
-                                        >
-                                            <m:Text
-                                                text="{ path: 'CompatibilityContract', formatter: '.formatter.getTextForReleaseContract' }"
-                                            />
-                                            <m:Button
-                                                icon="sap-icon://sys-help"
-                                                type="Transparent"
-                                                press=".formatter.openURLForContract(${CompatibilityContract})"
-                                                class="sapUiTinyMarginBegin sapUiTinyMarginEnd"
-                                            />
-                                            <tnt:InfoLabel
-                                                text="{ path: 'ReleaseState', formatter: '.formatter.getI18nText' }"
-                                                colorScheme="{=%{ReleaseState}.startsWith('RELEASE') ? 8 : 2}"
-                                                icon="{=%{ReleaseState}.startsWith('RELEASE') ? 'sap-icon://accept' : 'sap-icon://decline'}"
-                                            />
-                                        </m:FlexBox>
-                                    </macrosTable:Column>
-                                    <macrosTable:Column
-                                        header="{i18n>objects.detail.releaseInfoTable.column.successor}"
-                                        importance="High"
-                                        key="SuccessorCustom"
-                                    >
-                                        <m:Text text="{SuccessorObjectName}" />
-                                    </macrosTable:Column>
-                                </macros:columns>
-                            </macros:Table>
-                        </blocks>
-                    </ObjectPageSubSection>
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.TransportsSubSection"
+                        type="XML"
+                    />
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.ClassDiagramSubSection"
+                        type="XML"
+                    />
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.RAPDiagramSubSection"
+                        type="XML"
+                    />
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.ObjectAccessesSubSection"
+                        type="XML"
+                    />
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.ReleaseContractsSubSection"
+                        type="XML"
+                    />
+                    <core:Fragment
+                        fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.PackageChildObjectsSubSection"
+                        type="XML"
+                    />
                 </subSections>
             </ObjectPageSection>
 
-            <ObjectPageSection
-                id="sourceCodeSection"
-                titleUppercase="false"
-                title="{i18n>objects.detail.section.sourceCode}"
-                visible="{=%{WebLink} !== ''}"
-            >
-                <subSections>
-                    <ObjectPageSubSection titleUppercase="false">
-                        <blocks>
-                            <custom:SourceCode link="{WebLink}" />
-                        </blocks>
-                    </ObjectPageSubSection>
-                </subSections>
-            </ObjectPageSection>
+            <core:Fragment
+                fragmentName="com.extension-inspector.extension-inspector.view.objects.fragment.SourceCodeSection"
+                type="XML"
+            />
         </sections>
     </ObjectPageLayout>
 </mvc:View>

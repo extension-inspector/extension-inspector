@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:custom="com.extension-inspector.extension-inspector.control"
+>
+    <ObjectPageSection
+        id="sourceCodeSection"
+        titleUppercase="false"
+        title="{i18n>objects.detail.section.sourceCode}"
+        visible="{=%{WebLink} !== ''}"
+    >
+        <subSections>
+            <ObjectPageSubSection titleUppercase="false">
+                <blocks>
+                    <custom:SourceCode link="{WebLink}" />
+                </blocks>
+            </ObjectPageSubSection>
+        </subSections>
+    </ObjectPageSection>
+</core:FragmentDefinition>
