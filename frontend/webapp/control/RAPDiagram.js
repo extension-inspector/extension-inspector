@@ -232,6 +232,9 @@ sap.ui.define(
           } else if (oUniqueObject.SourceObjectType === "CLAS") {
             sObjectType = "ABAP Class"
             sObjectColor = "#DCE775"
+          } else if (oUniqueObject.SourceObjectType === "DCLS") {
+            sObjectType = "Access Control"
+            sObjectColor = "#FFE082"
           }
 
           let sLink =
@@ -286,6 +289,9 @@ sap.ui.define(
               break
             case "DDLS_BIND":
               sRelationType = "Binding for"
+              break
+            case "DDLS_AC":
+              sRelationType = "has Access Control"
               break
             default:
               sRelationType = "Unknown"
