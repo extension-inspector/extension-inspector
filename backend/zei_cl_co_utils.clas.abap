@@ -10,6 +10,12 @@ CLASS zei_cl_co_utils DEFINITION
              ObjectTypeText TYPE shvalue_d,
            END OF scts_object.
     TYPES: scts_object_table TYPE STANDARD TABLE OF scts_object WITH DEFAULT KEY.
+    TYPES: BEGIN OF object_desc,
+             ObjectType        TYPE trobjtype,
+             ObjectName        TYPE sobj_name,
+             ObjectDescription TYPE char80,
+           END OF object_desc.
+    TYPES: object_desc_table TYPE STANDARD TABLE OF object_desc WITH DEFAULT KEY.
 
     CLASS-METHODS:
       "! <p class="shorttext synchronized" lang="en">Get ABAP Object Types</p>
@@ -23,7 +29,12 @@ CLASS zei_cl_co_utils DEFINITION
           i_type               TYPE trobjtype
           i_object             TYPE sobj_name
         RETURNING
-          VALUE(r_description) TYPE char80.
+          VALUE(r_description) TYPE char80,
+      get_object_descriptions
+        IMPORTING
+          i_objects        TYPE object_desc_table
+        RETURNING
+          VALUE(r_objects) TYPE object_desc_table.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -60,35 +71,31 @@ CLASS zei_cl_co_utils IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD get_object_description.
-    TRY.
-        CASE i_type.
-          WHEN 'CLAS'.
-            DATA(class) = xco_abap=>class( CONV #( i_object ) ).
-            r_description = class->content( )->get_short_description( ).
-          WHEN 'INTF'.
-            DATA(interface) = xco_abap=>interface( CONV #( i_object ) ).
-            r_description = interface->content( )->get_short_description( ).
-          WHEN 'BDEF'.
-            DATA(behavior_def) = xco_cds=>behavior_definition( CONV #( i_object ) ).
-            r_description = behavior_def->content( )->get_short_description( ).
-          WHEN 'DDLS'.
-            DATA(data_definition) = xco_cds=>data_definition( CONV #( i_object ) ).
+    DATA: objects TYPE TABLE OF seu_objtxt.
+    objects = VALUE #( ( object = i_type obj_name = i_object ) ).
 
-            " handle edge case that data definitions of type extend dont support a description (#5)
-            DATA(type) = data_definition->get_type( ).
-            IF type IS NOT INITIAL AND type->value = 'E'.
-              RETURN.
-            ENDIF.
+    CALL FUNCTION 'RS_SHORTTEXT_GET'
+      EXPORTING
+        fallback_language_1 = 'E'
+      TABLES
+        obj_tab             = objects.
 
-            r_description = data_definition->view( )->content( )->get_short_description( ).
-          WHEN 'TABL'.
-            DATA(table) = xco_abap_dictionary=>table( CONV #( i_object ) ).
-            r_description = table->get_database_table( )->content( )->get_short_description( ).
-        ENDCASE.
+    r_description = VALUE #( objects[ 1 ]-stext OPTIONAL ).
+  ENDMETHOD.
 
-      CATCH cx_root.
+  METHOD get_object_descriptions.
+    DATA: rs_objects TYPE TABLE OF seu_objtxt.
+    rs_objects = VALUE #( FOR object IN i_objects ( object = object-objecttype obj_name = object-objectname ) ).
 
-    ENDTRY.
+    CALL FUNCTION 'RS_SHORTTEXT_GET'
+      EXPORTING
+        fallback_language_1 = 'E'
+      TABLES
+        obj_tab             = rs_objects.
+
+    r_objects = VALUE #( FOR rs_object IN rs_objects ( objecttype = rs_object-object
+                                                       objectname = rs_object-obj_name
+                                                       objectdescription = rs_object-stext ) ).
   ENDMETHOD.
 
 ENDCLASS.

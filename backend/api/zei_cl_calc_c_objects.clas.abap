@@ -54,11 +54,13 @@ CLASS zei_cl_calc_c_objects IMPLEMENTATION.
                 AND TargetObjectName = @calculated_data-ABAPObject )
         INTO TABLE @DATA(object_relations).
 
-    LOOP AT calculated_data ASSIGNING FIELD-SYMBOL(<calculated_data>).
+    DATA(object_desc_table) = VALUE zei_cl_co_utils=>object_desc_table( FOR data IN calculated_data ( objecttype = data-ABAPObjectType
+                                                                                                      objectname = data-ABAPObject ) ).
+    DATA(object_descriptions) = zei_cl_co_utils=>get_object_descriptions( object_desc_table ).
 
-      IF <calculated_data>-IsDeleted = abap_false.
-        <calculated_data>-ABAPObjectDescription = zei_cl_co_utils=>get_object_description( i_type = <calculated_data>-ABAPObjectType i_object = <calculated_data>-ABAPObject ).
-      ENDIF.
+    LOOP AT calculated_data ASSIGNING FIELD-SYMBOL(<calculated_data>).
+      <calculated_data>-ABAPObjectDescription = VALUE #( object_descriptions[ objecttype = <calculated_data>-ABAPObjectType
+                                                                              objectname = <calculated_data>-ABAPObject ]-objectdescription OPTIONAL ).
 
       <calculated_data>-ABAPObjectTypeName = VALUE #( scts_objects[ objecttype = <calculated_data>-ABAPObjectType ]-objecttypetext OPTIONAL ).
       <calculated_data>-ADTLink = _getADTLink( i_objecttype = <calculated_data>-ABAPObjectType i_objectname = <calculated_data>-ABAPObject ).

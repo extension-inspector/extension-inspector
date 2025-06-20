@@ -42,10 +42,14 @@ CLASS zei_cl_qp_objectaccesses IMPLEMENTATION.
 
         DATA(scts_objects) = zei_cl_co_utils=>get_abap_object_types( ).
 
+        DATA(object_desc_table) = VALUE zei_cl_co_utils=>object_desc_table( FOR object IN objectaccesses ( objecttype = object-Type
+                                                                                                      objectname = object-Object ) ).
+        DATA(object_descriptions) = zei_cl_co_utils=>get_object_descriptions( object_desc_table ).
+
         LOOP AT objectaccesses ASSIGNING FIELD-SYMBOL(<objectaccess>).
           <objectaccess>-TypeName = VALUE #( scts_objects[ objecttype = <objectaccess>-Type ]-objecttypetext OPTIONAL ).
-
-          <objectaccess>-ObjectText = zei_cl_co_utils=>get_object_description( i_type = CONV #( <objectaccess>-Type ) i_object = CONV #( <objectaccess>-Object ) ).
+          <objectaccess>-ObjectText = VALUE #( object_descriptions[ objecttype = <objectaccess>-Type
+                                                                    objectname = <objectaccess>-Object ]-objectdescription OPTIONAL ).
         ENDLOOP.
 
         SELECT * FROM @objectaccesses AS co
