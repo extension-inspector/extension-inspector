@@ -159,7 +159,7 @@ sap.ui.define(
 
         const aUniqueObjectsSet = new Set()
         aRelations.forEach((item) => {
-          if (!item.Relation.startsWith("DDLS")) {
+          if (!(item.Relation.startsWith("DDLS") || item.Relation.startsWith("BDEF"))) {
             return
           }
 
@@ -255,7 +255,7 @@ sap.ui.define(
         sDiagramSyntax += `style ${sObjectType}${sObjectName} fill:#F44336 ${this.NEW_LINE}`
 
         aRelations.forEach((oRelation) => {
-          if (!oRelation.Relation.startsWith("DDLS")) {
+          if (!(oRelation.Relation.startsWith("DDLS") || oRelation.Relation.startsWith("BDEF"))) {
             return
           }
 
@@ -298,6 +298,12 @@ sap.ui.define(
               break
             case "DDLS_BDEF":
               sRelationType = "has Behavior Definition"
+              break
+            case "BDEF_IMPL":
+              sRelationType = "Behavior Implementation for"
+              break
+            case "BDEF_EXT":
+              sRelationType = "Behavior Extended by"
               break
             default:
               sRelationType = "Unknown"
