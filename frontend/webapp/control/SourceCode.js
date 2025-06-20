@@ -29,7 +29,7 @@ sap.ui.define(["sap/ui/core/Control"], (Control) => {
       oRm.openStart("div", oControl)
       oRm.openEnd()
       oRm.write(
-        `<iframe id="sourceCodeIFrame" src="${oControl.getLink()}" width="100%" onload="(function(e){var iFrame = document.getElementById('sourceCodeIFrame'); if (iFrame) { iFrame.height = '500px'; iFrame.height = iFrame.contentWindow.document.body.scrollHeight + 'px';} else { console.log('test123') }})(this)" />`,
+        `<iframe id="sourceCodeIFrame" src="${oControl.getLink()}" width="100%" onload="(function(e){var iFrame = document.getElementById('sourceCodeIFrame'); if (iFrame) { iFrame.height = ''; iFrame.height = iFrame.contentWindow.document.body.scrollHeight + 'px';} else { console.log('test123') }})(this)" />`,
       )
       oRm.close("div")
     },

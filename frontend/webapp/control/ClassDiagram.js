@@ -105,7 +105,7 @@ sap.ui.define(
         oRm.openStart("div", oControl)
         oRm.openEnd()
         oRm.write(
-          `<style>svg { cursor: grab; }</style><div id="diagram-container-class" style="width:100%; height:50vh; overflow:hidden;"><pre class="mermaid" style="height: 100% !important;">${oControl.sDiagramSyntax}</pre></div>`,
+          `<style>svg { cursor: grab; }</style><div id="diagram-container-class" style="width:100%; max-height:50vh; overflow:hidden;"><pre class="mermaid" style="height: 100% !important;">${oControl.sDiagramSyntax}</pre></div>`,
         )
         oRm.close("div")
       },

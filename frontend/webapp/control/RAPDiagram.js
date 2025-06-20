@@ -107,7 +107,7 @@ sap.ui.define(
         oRm.openEnd()
         if (oControl.sDiagramSyntax) {
           oRm.write(
-            `<style>svg { cursor: grab; }</style><div id="diagram-container" style="width:100%; height:50vh; overflow:hidden;"><pre class="mermaid" style="height: 100% !important;">${oControl.sDiagramSyntax}</pre></div>`,
+            `<style>svg { cursor: grab; }</style><div id="diagram-container" style="width:100%; max-height:50vh; overflow:hidden;"><pre class="mermaid" style="height: 100% !important;">${oControl.sDiagramSyntax}</pre></div>`,
           )
         } else {
           oRm.write("No diagram available.")
