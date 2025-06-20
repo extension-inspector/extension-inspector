@@ -24,7 +24,8 @@ CLASS zei_cl_ddls_cache DEFINITION PUBLIC FINAL INHERITING FROM zei_cl_cacheobje
           associations TYPE sxco_t_cds_associations,
       _handle_compositions
         IMPORTING
-          compositions TYPE sxco_t_cds_compositions.
+          compositions TYPE sxco_t_cds_compositions,
+      _handle_access_control.
 
 ENDCLASS.
 
@@ -41,6 +42,7 @@ CLASS zei_cl_ddls_cache IMPLEMENTATION.
 
     _handle_type( ).
     _handle_data_source( ).
+    _handle_access_control( ).
   ENDMETHOD.
 
   METHOD _handle_type.
@@ -165,6 +167,20 @@ CLASS zei_cl_ddls_cache IMPLEMENTATION.
       me->add_to_rel( i_tgt_type = 'DDLS'
                       i_tgt_name = CONV #( to_upper( <composition>->target ) )
                       i_relation = 'DDLS_COMP' ).
+    ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD _handle_access_control.
+    SELECT *
+        FROM acmdclmetadataen
+        WHERE entity_id = @data_definition->name
+        INTO TABLE @DATA(access_controls).
+
+    LOOP AT access_controls ASSIGNING FIELD-SYMBOL(<access_control>).
+      me->add_to_rel( i_tgt_type = 'DCLS'
+                      i_tgt_name = CONV #( to_upper( <access_control>-artifactname ) )
+                      i_relation = 'DDLS_AC' ).
     ENDLOOP.
   ENDMETHOD.
 
