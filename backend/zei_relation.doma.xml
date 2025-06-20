@@ -127,6 +127,12 @@
      <DOMVALUE_L>DDLS_AC</DOMVALUE_L>
      <DDTEXT>has Access Control</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0020</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_BDEF</DOMVALUE_L>
+     <DDTEXT>has Behavior Definition</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
