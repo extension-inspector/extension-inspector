@@ -65,11 +65,11 @@ CLASS lhc_Actions IMPLEMENTATION.
     SORT: objects BY object_type object_name.
     DELETE ADJACENT DUPLICATES FROM objects COMPARING ALL FIELDS.
 
-    SELECT * FROM zei_r_objectrelations
-        FOR ALL ENTRIES IN @objects
-        WHERE SourceObjectType = @objects-object_type
-          AND SourceObjectName = @objects-object_name
-        INTO TABLE @relations.
+*    SELECT * FROM zei_r_objectrelations
+*        FOR ALL ENTRIES IN @objects
+*        WHERE SourceObjectType = @objects-object_type
+*          AND SourceObjectName = @objects-object_name
+*        INTO TABLE @relations.
 
     SELECT * FROM zei_r_objectdefinitions
         FOR ALL ENTRIES IN @relations
