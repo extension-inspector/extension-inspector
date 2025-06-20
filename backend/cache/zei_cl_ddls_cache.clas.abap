@@ -25,7 +25,8 @@ CLASS zei_cl_ddls_cache DEFINITION PUBLIC FINAL INHERITING FROM zei_cl_cacheobje
       _handle_compositions
         IMPORTING
           compositions TYPE sxco_t_cds_compositions,
-      _handle_access_control.
+      _handle_access_control,
+      _handle_behavior_definition.
 
 ENDCLASS.
 
@@ -43,6 +44,7 @@ CLASS zei_cl_ddls_cache IMPLEMENTATION.
     _handle_type( ).
     _handle_data_source( ).
     _handle_access_control( ).
+    _handle_behavior_definition( ).
   ENDMETHOD.
 
   METHOD _handle_type.
@@ -181,6 +183,21 @@ CLASS zei_cl_ddls_cache IMPLEMENTATION.
       me->add_to_rel( i_tgt_type = 'DCLS'
                       i_tgt_name = CONV #( to_upper( <access_control>-artifactname ) )
                       i_relation = 'DDLS_AC' ).
+    ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD _handle_behavior_definition.
+    SELECT ABAPObjectType, ABAPObject
+        FROM ZEI_R_DevObjects
+        WHERE ABAPObjectType = 'BDEF'
+          AND ABAPObject = @data_definition->name
+        INTO TABLE @DATA(behavior_definitions).
+
+    LOOP AT behavior_definitions ASSIGNING FIELD-SYMBOL(<behavior_definition>).
+      me->add_to_rel( i_tgt_type = 'BDEF'
+                      i_tgt_name = CONV #( to_upper( <behavior_definition>-ABAPObject ) )
+                      i_relation = 'DDLS_BDEF' ).
     ENDLOOP.
   ENDMETHOD.
 
