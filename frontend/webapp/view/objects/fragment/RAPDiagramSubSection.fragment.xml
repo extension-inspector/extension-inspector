@@ -7,7 +7,7 @@
     <ObjectPageSubSection
         titleUppercase="false"
         title="{i18n>objects.detail.section.objectDiagram}"
-        visible="{= ['DDLS'].includes(%{ABAPObjectType}) }"
+        visible="{= ['DDLS', 'BDEF', 'SRVD', 'SRVB'].includes(%{ABAPObjectType}) }"
     >
         <blocks>
             <m:VBox visible="{HasRelations}">
