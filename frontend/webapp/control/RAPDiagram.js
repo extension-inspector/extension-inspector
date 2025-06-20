@@ -27,6 +27,7 @@ sap.ui.define(
 
       onAfterRendering: function () {
         if (this.sDiagramSyntax) {
+          mermaid.initialize({})
           mermaid.run({
             querySelector: ".mermaid",
             postRenderCallback: (id) => {
@@ -135,7 +136,7 @@ sap.ui.define(
         const sObjectType = this.getType()
         const sObjectName = this.getObject()
 
-        let sDiagramSyntax = `flowchart LR ${this.NEW_LINE}`
+        let sDiagramSyntax = `\%\%{init: { "flowchart": { "curve": "stepBefore" } } }\%\%${this.NEW_LINE}graph LR ${this.NEW_LINE}`
 
         const aDefinitions = oDeclarations._Definitions
         let aRelations = oDeclarations._Relations
@@ -235,7 +236,7 @@ sap.ui.define(
 
           let sLink =
             window.location.hash.split("&")[0] +
-            "&/objects/" +
+            "&/objects/R3TR/" +
             oUniqueObject.SourceObjectType +
             "/" +
             oUniqueObject.SourceObjectName

@@ -50,6 +50,7 @@ sap.ui.define(
       },
 
       onAfterRendering: function () {
+        mermaid.initialize({})
         mermaid.run({
           querySelector: ".mermaid",
           postRenderCallback: (id) => {
