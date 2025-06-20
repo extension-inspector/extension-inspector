@@ -228,13 +228,16 @@ sap.ui.define(
             sObjectColor = "#81C784"
           } else if (oUniqueObject.SourceObjectType === "SRVB") {
             sObjectType = "Service Binding"
-            sObjectColor = "#9575CD"
+            sObjectColor = "#BA68C8"
           } else if (oUniqueObject.SourceObjectType === "CLAS") {
             sObjectType = "ABAP Class"
             sObjectColor = "#DCE775"
           } else if (oUniqueObject.SourceObjectType === "DCLS") {
             sObjectType = "Access Control"
             sObjectColor = "#FFE082"
+          } else if (oUniqueObject.SourceObjectType === "BDEF") {
+            sObjectType = "Behavior Definition"
+            sObjectColor = "#9575CD"
           }
 
           let sLink =
@@ -292,6 +295,9 @@ sap.ui.define(
               break
             case "DDLS_AC":
               sRelationType = "has Access Control"
+              break
+            case "DDLS_BDEF":
+              sRelationType = "has Behavior Definition"
               break
             default:
               sRelationType = "Unknown"
