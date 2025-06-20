@@ -22,6 +22,13 @@ sap.ui.define(
         })
       },
 
+      onPressCreatedBy(oEvent) {
+        const oObject = oEvent.getSource().getBindingContext().getObject()
+        const sName = encodeURIComponent(oObject.PersonResponsible)
+
+        this.getAppComponent().getRouter().navTo("developersDetailView", { name: sName })
+      },
+
       onSuccessorObjectLinkPress: function (oEvent) {
         const sSuccessorType = this.getView().getBindingContext().getObject().SuccessorABAPObjectType
         const sSuccessorObject = this.getView().getBindingContext().getObject().SuccessorABAPObject

@@ -68,18 +68,6 @@
                         />
                     </macrosTable:Column>
                     <macrosTable:Column
-                        header="{i18n>objects.list.column.ParentABAPPackage}"
-                        key="ParentABAPPackageCustom"
-                        anchor="DataField::ABAPObjectDescription"
-                        placement="After"
-                        width="17em"
-                    >
-                        <m:Link
-                            text="{ParentABAPPackage}"
-                            press=".onPressParentPackage"
-                        />
-                    </macrosTable:Column>
-                    <macrosTable:Column
                         header="{i18n>objects.list.column.Author}"
                         key="AuthorCustom"
                         anchor="ABAPObjectCustom"
