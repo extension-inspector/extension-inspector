@@ -65,8 +65,9 @@ _Follow the instructions below to get started with the app on your own S/4HANA S
    npm i
    ```
 3. Create a `ui5-deploy.yaml`
-   ```js
-   npm run deploy-config
+   ```
+   In VSCode command palette (CTRL+Shift+P) search for "Fiori: Add Deployment Configuration".
+   A UI-based generator will open up. Follow the steps of the generator to create `ui5-deploy.yaml`.
    ```
 4. Deploy the app to your S/4HANA system
    ```sh
