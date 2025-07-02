@@ -61,18 +61,24 @@ _Follow the instructions below to get started with the app on your own S/4HANA S
 ### Deployment of the Frontend
 1. Open VSCode and clone this repository
 2. Change the directory to `frontend` and install all modules
+
    ```sh
    npm i
    ```
-3. Create a `ui5-deploy.yaml`
-   ```
-   In VSCode command palette (CTRL+Shift+P) search for "Fiori: Add Deployment Configuration".
+3. Define a `ui5-deploy.yaml`
+   - **Option 1 - Use the provided template file (recommended):**
+   Remove the suffix `.template` from the file `ui5-deploy.yaml.template` in the `frontend` folder.
+   Replace the placeholders of the template file (Hostname, Port, Client, ABAP Package and Transport Request).
+
+   - **Option 2 - Generate a new file:**
+   In VSCode command palette (`CTRL+Shift+P`) search for "Fiori: Add Deployment Configuration".
    A UI-based generator will open up. Follow the steps of the generator to create `ui5-deploy.yaml`.
-   ```
 4. Deploy the app to your S/4HANA system
+
    ```sh
    npm run deploy
    ```
+   
 5. Done! Now you can open the app standalone by selecting _right click --> Test_ on the deployed BSP file or by adding the app to your Fiori Launchpad (App ID `com.extension-inspector.extension-inspector`).
 
 ### Creating Object Caches
