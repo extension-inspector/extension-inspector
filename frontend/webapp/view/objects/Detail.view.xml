@@ -43,6 +43,7 @@
                             <m:Avatar
                                 src="{ path: 'ABAPObjectType', formatter: '.formatter.getObjectAvatarURL' }"
                                 class="sapUiSmallMarginEnd"
+                                displayShape="Square"
                             />
                         </m:VBox>
 
