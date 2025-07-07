@@ -4,5 +4,7 @@
     "description": "Application Job Catalog Entry to refresh object cache",
     "originalLanguage": "en"
   },
-  "className": "ZEI_CL_APJ_REFRESH_OBJECTCACHE"
+  "generalInformation": {
+    "className": ""
+  }
 }
