@@ -13,7 +13,7 @@ sap.ui.define(
 
     return PageController.extend("com.extension-inspector.extension-inspector.controller.developers.List", {
       formatter: formatter,
-      
+
       onInit: function () {
         PageController.prototype.onInit.apply(this)
 
@@ -45,7 +45,7 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         const oSideModel = this.getOwnerComponent().getModel("side")
         oSideModel.setProperty("/selectedKey", "developersListView")
-      }
+      },
     })
   },
 )

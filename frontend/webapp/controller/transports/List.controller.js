@@ -35,7 +35,7 @@ sap.ui.define(
       _onRouteMatched: function (oEvent) {
         const oSideModel = this.getOwnerComponent().getModel("side")
         oSideModel.setProperty("/selectedKey", "transportsListView")
-      }
+      },
     })
   },
 )

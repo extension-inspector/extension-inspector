@@ -44,13 +44,13 @@ sap.ui.define(
         })
       },
 
-      onPressItemMostAccessedObjects: function(oEvent) {
+      onPressItemMostAccessedObjects: function (oEvent) {
         const oObject = oEvent.getSource().getBindingContext().getObject()
         const sType = encodeURIComponent(oObject.TargetObjectType)
         const sName = encodeURIComponent(oObject.TargetObjectName)
 
-        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: 'R3TR', type: sType, name: sName })
-      }
+        this.getAppComponent().getRouter().navTo("objectsDetailView", { program: "R3TR", type: sType, name: sName })
+      },
     })
   },
 )
