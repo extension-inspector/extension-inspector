@@ -22,7 +22,7 @@ sap.ui.define(
       },
 
       onAfterRendering() {
-        const oFilterBar = this.getView().byId("FilterBar")
+        const oFilterBar = this.getView().byId("DevelopersListFilterBar")
         oFilterBar.triggerSearch()
       },
 

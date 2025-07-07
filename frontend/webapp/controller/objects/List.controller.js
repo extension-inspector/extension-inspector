@@ -21,7 +21,7 @@ sap.ui.define(
       },
 
       onAfterRendering() {
-        const oFilterBar = this.getView().byId("FilterBar")
+        const oFilterBar = this.getView().byId("ObjectsListFilterBar")
         oFilterBar.triggerSearch()
 
         this._setBreadcrumpFilter("")

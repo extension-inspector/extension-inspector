@@ -14,7 +14,7 @@ sap.ui.define(
       },
 
       onAfterRendering() {
-        const oFilterBar = this.getView().byId("FilterBar")
+        const oFilterBar = this.getView().byId("TransportsListFilterBar")
         oFilterBar.triggerSearch()
       },
 
