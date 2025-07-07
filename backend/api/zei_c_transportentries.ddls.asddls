@@ -15,9 +15,10 @@ define root view entity ZEI_C_TransportEntries
   key     RequestTask,
   key     As4Pos,
           ProgramId,
-          ABAPObjectType,
-          ABAPObject,
           @Search.defaultSearchElement: true
+          ABAPObjectType,
+          @Search.defaultSearchElement: true
+          ABAPObject,
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZEI_CL_CALC_C_OBJECTS'
   virtual ABAPObjectDescription : char80,
 
