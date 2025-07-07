@@ -20,8 +20,8 @@
             <f:DynamicPageTitle>
                 <f:heading>
                     <v:VariantManagement
-                        id="vm"
-                        for="FilterBar,LineItemTable"
+                        id="ObjectsListVariantManagement"
+                        for="ObjectsListFilterBar,ObjectsListLineItemTable"
                         showSetAsDefault="true"
                         headerLevel="H2"
                     />
@@ -33,7 +33,7 @@
                 <f:content>
                     <macros:FilterBar
                         metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
-                        id="FilterBar"
+                        id="ObjectsListFilterBar"
                         showClearButton="true"
                         search=".onSearch"
                     >
@@ -53,8 +53,8 @@
                     <IconTabFilter text="{i18n>objects.subheader.title.List}">
                         <macros:Table
                             metaPath="@com.sap.vocabularies.UI.v1.LineItem"
-                            id="LineItemTable"
-                            filterBar="FilterBar"
+                            id="ObjectsListLineItemTable"
+                            filterBar="ObjectsListFilterBar"
                             selectionMode="Single"
                             widthIncludingColumnHeader="false"
                             type="ResponsiveTable"

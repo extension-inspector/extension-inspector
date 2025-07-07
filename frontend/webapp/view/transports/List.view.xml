@@ -17,8 +17,8 @@
             <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
                 <f:heading>
                     <v:VariantManagement
-                        id="vm"
-                        for="FilterBar,LineItemTable"
+                        id="TransportsListVariantManagement"
+                        for="TransportsListFilterBar,TransportsListLineItemTable"
                         showSetAsDefault="true"
                         headerLevel="H2"
                     />
@@ -30,7 +30,7 @@
                 <f:content>
                     <macros:FilterBar
                         metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
-                        id="FilterBar"
+                        id="TransportsListFilterBar"
                         showClearButton="true"
                     >
                         <macros:layoutData>
@@ -43,8 +43,8 @@
         <f:content>
             <macros:Table
                 metaPath="@com.sap.vocabularies.UI.v1.LineItem"
-                id="LineItemTable"
-                filterBar="FilterBar"
+                id="TransportsListLineItemTable"
+                filterBar="TransportsListFilterBar"
                 selectionMode="Single"
                 widthIncludingColumnHeader="false"
                 type="ResponsiveTable"
