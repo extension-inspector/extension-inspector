@@ -199,6 +199,12 @@
      <DOMVALUE_L>DCLS_INH</DOMVALUE_L>
      <DDTEXT>Inheriting from</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0032</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLX_EXT</DOMVALUE_L>
+     <DDTEXT>Extending</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
