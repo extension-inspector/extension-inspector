@@ -24,9 +24,10 @@ CLASS zei_cl_cacheobject DEFINITION PUBLIC CREATE PUBLIC.
 
       add_to_rel
         IMPORTING
-          i_tgt_type TYPE trobjtype
-          i_tgt_name TYPE sobj_name
-          i_relation TYPE zei_relation.
+          i_tgt_type     TYPE trobjtype
+          i_tgt_name     TYPE sobj_name
+          i_relation     TYPE zei_relation
+          i_switch_nodes TYPE boole_d OPTIONAL.
 
   PRIVATE SECTION.
 
@@ -87,28 +88,53 @@ CLASS zei_cl_cacheobject IMPLEMENTATION.
         "won´t ever happen
     ENDTRY.
 
-    MODIFY ENTITIES OF ZEI_I_ObjectRelations
-    ENTITY ObjectRelation
-          CREATE FROM VALUE #( ( %cid = guid
-                                 Guid = guid
-                                 SourceObjectType = object_type
-                                 SourceObjectName = object_name
-                                 TargetObjectType = i_tgt_type
-                                 TargetObjectName = i_tgt_name
-                                 Relation = i_relation
-                                 CreatedAt = cl_abap_context_info=>get_system_date( )
-                                 CreatedOn = cl_abap_context_info=>get_system_time( )
-                                 %control-Guid = if_abap_behv=>mk-on
-                                 %control-SourceObjectType = if_abap_behv=>mk-on
-                                 %control-SourceObjectName = if_abap_behv=>mk-on
-                                 %control-TargetObjectType = if_abap_behv=>mk-on
-                                 %control-TargetObjectName = if_abap_behv=>mk-on
-                                 %control-Relation = if_abap_behv=>mk-on
-                                 %control-CreatedAt = if_abap_behv=>mk-on
-                                 %control-CreatedOn = if_abap_behv=>mk-on ) )
-          MAPPED DATA(mapped)
-          REPORTED DATA(reported)
-          FAILED DATA(failed).
+    IF i_switch_nodes = abap_true.
+      MODIFY ENTITIES OF ZEI_I_ObjectRelations
+      ENTITY ObjectRelation
+            CREATE FROM VALUE #( ( %cid = guid
+                                   Guid = guid
+                                   SourceObjectType = i_tgt_type
+                                   SourceObjectName = i_tgt_name
+                                   TargetObjectType = object_type
+                                   TargetObjectName = object_name
+                                   Relation = i_relation
+                                   CreatedAt = cl_abap_context_info=>get_system_date( )
+                                   CreatedOn = cl_abap_context_info=>get_system_time( )
+                                   %control-Guid = if_abap_behv=>mk-on
+                                   %control-SourceObjectType = if_abap_behv=>mk-on
+                                   %control-SourceObjectName = if_abap_behv=>mk-on
+                                   %control-TargetObjectType = if_abap_behv=>mk-on
+                                   %control-TargetObjectName = if_abap_behv=>mk-on
+                                   %control-Relation = if_abap_behv=>mk-on
+                                   %control-CreatedAt = if_abap_behv=>mk-on
+                                   %control-CreatedOn = if_abap_behv=>mk-on ) )
+            MAPPED DATA(mapped)
+            REPORTED DATA(reported)
+            FAILED DATA(failed).
+    ELSE.
+      MODIFY ENTITIES OF ZEI_I_ObjectRelations
+     ENTITY ObjectRelation
+           CREATE FROM VALUE #( ( %cid = guid
+                                  Guid = guid
+                                  SourceObjectType = object_type
+                                  SourceObjectName = object_name
+                                  TargetObjectType = i_tgt_type
+                                  TargetObjectName = i_tgt_name
+                                  Relation = i_relation
+                                  CreatedAt = cl_abap_context_info=>get_system_date( )
+                                  CreatedOn = cl_abap_context_info=>get_system_time( )
+                                  %control-Guid = if_abap_behv=>mk-on
+                                  %control-SourceObjectType = if_abap_behv=>mk-on
+                                  %control-SourceObjectName = if_abap_behv=>mk-on
+                                  %control-TargetObjectType = if_abap_behv=>mk-on
+                                  %control-TargetObjectName = if_abap_behv=>mk-on
+                                  %control-Relation = if_abap_behv=>mk-on
+                                  %control-CreatedAt = if_abap_behv=>mk-on
+                                  %control-CreatedOn = if_abap_behv=>mk-on ) )
+           MAPPED mapped
+           REPORTED reported
+           FAILED failed.
+    ENDIF.
   ENDMETHOD.
 
 ENDCLASS.
