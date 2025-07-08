@@ -238,6 +238,9 @@ sap.ui.define(
           } else if (oUniqueObject.SourceObjectType === "BDEF") {
             sObjectType = "Behavior Definition"
             sObjectColor = "#9575CD"
+          } else if (oUniqueObject.SourceObjectType === "WAPA") {
+            sObjectType = "Fiori App"
+            sObjectColor = "#4FC3F7"
           }
 
           let sLink =
@@ -304,6 +307,9 @@ sap.ui.define(
               break
             case "BDEF_EXT":
               sRelationType = "Behavior Extended by"
+              break
+            case "DDLS_DS":
+              sRelationType = "using Data Source"
               break
             default:
               sRelationType = "Unknown"

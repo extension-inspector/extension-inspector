@@ -135,7 +135,7 @@ sap.ui.define(
         const aDefinitions = oDeclarations._Definitions
         let aRelations = oDeclarations._Relations
 
-        aRelations = aRelations.filter((oRelation) => oRelation.Relation !== "LNK_DASHED")
+        aRelations = aRelations.filter((oRelation) => oRelation.Relation !== "ACCESSING")
 
         for (const oRelation of aRelations) {
           sDiagramSyntax += this._getRelationSyntax(oRelation)
