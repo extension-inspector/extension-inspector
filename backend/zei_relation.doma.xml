@@ -163,6 +163,36 @@
      <DOMVALUE_L>DS</DOMVALUE_L>
      <DDTEXT>using Data Source</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0026</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SAJC_IM_EX</DOMVALUE_L>
+     <DDTEXT>Execution Implemented by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0027</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SAJC_IM_CK</DOMVALUE_L>
+     <DDTEXT>Check Implemented by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0028</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SAJC_IM_VH</DOMVALUE_L>
+     <DDTEXT>Value Help Implemented by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0029</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SAJC_IM_NO</DOMVALUE_L>
+     <DDTEXT>Notification Implemented by</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0030</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>SAJT_FOR</DOMVALUE_L>
+     <DDTEXT>Template for</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
