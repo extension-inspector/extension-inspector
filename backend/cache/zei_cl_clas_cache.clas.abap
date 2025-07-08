@@ -63,7 +63,8 @@ CLASS zei_cl_clas_cache IMPLEMENTATION.
     IF definition_content-for_behavior_of IS NOT INITIAL.
       me->add_to_rel( i_tgt_type = 'BDEF'
                       i_tgt_name = CONV #( definition_content-for_behavior_of->name )
-                      i_relation = 'BDEF_IMPL' ).
+                      i_relation = 'BDEF_IMPL'
+                      i_switch_nodes = abap_true ). " switch nodes because behavior implementations cannot be selected directly in BDEF cache
     ENDIF.
   ENDMETHOD.
 

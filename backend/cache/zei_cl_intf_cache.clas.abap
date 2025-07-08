@@ -13,8 +13,7 @@ CLASS zei_cl_intf_cache DEFINITION PUBLIC FINAL INHERITING FROM zei_cl_cacheobje
     METHODS:
       _handle_interfaces,
       _handle_data,
-      _handle_methods,
-      _handle_implementations.
+      _handle_methods.
 
 ENDCLASS.
 
@@ -32,7 +31,6 @@ CLASS zei_cl_intf_cache IMPLEMENTATION.
     _handle_interfaces( ).
     _handle_data( ).
     _handle_methods( ).
-    _handle_implementations( ).
 
   ENDMETHOD.
 
@@ -95,10 +93,6 @@ CLASS zei_cl_intf_cache IMPLEMENTATION.
                                                           ELSE |{ s }, { <importing_param>->name }| ) )
                   i_ref_var2 = CONV #( returning_param_name ) ).
     ENDLOOP.
-  ENDMETHOD.
-
-  METHOD _handle_implementations.
-    " currently not available in XCO methods
   ENDMETHOD.
 
 ENDCLASS.
