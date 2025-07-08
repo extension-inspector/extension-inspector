@@ -34,6 +34,8 @@ CLASS zei_cl_cachefactory IMPLEMENTATION.
         r_cache_object = NEW zei_cl_srvb_cache( i_object_type = i_object_type i_object_name = i_object_name ).
       WHEN 'SMBC'.
         r_cache_object = NEW zei_cl_smbc_cache( i_object_type = i_object_type i_object_name = i_object_name ).
+      WHEN 'WAPA'.
+        r_cache_object = NEW zei_cl_wapa_cache( i_object_type = i_object_type i_object_name = i_object_name ).
 
       WHEN OTHERS.
         r_cache_object = NEW zei_cl_cacheobject( i_object_type = i_object_type i_object_name = i_object_name ).

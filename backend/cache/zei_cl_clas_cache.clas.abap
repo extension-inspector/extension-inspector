@@ -146,7 +146,7 @@ CLASS zei_cl_clas_cache IMPLEMENTATION.
     LOOP AT environment_table ASSIGNING FIELD-SYMBOL(<enviroment>) WHERE type = 'CLAS' OR type = 'BDEF' OR type = 'INCL' OR type = 'FUNC'.
       me->add_to_rel( i_tgt_type = CONV #( <enviroment>-type )
                       i_tgt_name = CONV #( <enviroment>-object )
-                      i_relation = 'LNK_DASHED' ).
+                      i_relation = 'ACCESSING' ).
     ENDLOOP.
   ENDMETHOD.
 

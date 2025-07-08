@@ -145,6 +145,24 @@
      <DOMVALUE_L>BDEF_IMPL</DOMVALUE_L>
      <DDTEXT>Behavior Implemented by</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0023</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ACCESSING</DOMVALUE_L>
+     <DDTEXT>is accessing</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0024</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DDLS_DS</DOMVALUE_L>
+     <DDTEXT>using Data Source</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0025</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DS</DOMVALUE_L>
+     <DDTEXT>using Data Source</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
