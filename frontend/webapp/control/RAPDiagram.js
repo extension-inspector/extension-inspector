@@ -159,7 +159,10 @@ sap.ui.define(
 
         const aUniqueObjectsSet = new Set()
         aRelations.forEach((item) => {
-          if (!(item.Relation.startsWith("DDLS") || item.Relation.startsWith("BDEF"))) {
+          /*if (!(item.Relation.startsWith("DDLS") || item.Relation.startsWith("BDEF"))) {
+            return
+          }*/
+          if (item.Relation.startsWith("ACCESSING")) {
             return
           }
 
@@ -241,6 +244,9 @@ sap.ui.define(
           } else if (oUniqueObject.SourceObjectType === "WAPA") {
             sObjectType = "Fiori App"
             sObjectColor = "#4FC3F7"
+          } else if (oUniqueObject.SourceObjectType === "DDLX") {
+            sObjectType = "Metadata Extension"
+            sObjectColor = "#FFD54F"
           }
 
           let sLink =
@@ -258,7 +264,11 @@ sap.ui.define(
         sDiagramSyntax += `style ${sObjectType}${sObjectName} fill:#F44336 ${this.NEW_LINE}`
 
         aRelations.forEach((oRelation) => {
-          if (!(oRelation.Relation.startsWith("DDLS") || oRelation.Relation.startsWith("BDEF"))) {
+          /*if (!(oRelation.Relation.startsWith("DDLS") || oRelation.Relation.startsWith("BDEF"))) {
+            return
+          }*/
+
+          if (oRelation.Relation.startsWith("ACCESSING")) {
             return
           }
 
@@ -313,6 +323,9 @@ sap.ui.define(
               break
             case "DCLS_INH":
               sRelationType = "Inheriting from"
+              break
+            case "DDLX_EXT":
+              sRelationType = "Extending"
               break
               
             default:
