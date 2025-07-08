@@ -311,6 +311,10 @@ sap.ui.define(
             case "DCLS_FOR":
               sRelationType = "Access Control for"
               break
+            case "DCLS_INH":
+              sRelationType = "Inheriting from"
+              break
+              
             default:
               sRelationType = "Unknown"
           }
