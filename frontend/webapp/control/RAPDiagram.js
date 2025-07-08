@@ -296,20 +296,20 @@ sap.ui.define(
             case "DDLS_BIND":
               sRelationType = "Binding for"
               break
-            case "DDLS_AC":
-              sRelationType = "has Access Control"
-              break
             case "DDLS_BDEF":
               sRelationType = "has Behavior Definition"
               break
             case "BDEF_IMPL":
-              sRelationType = "Behavior Implementation for"
+              sRelationType = "Behavior Implemented by"
               break
             case "BDEF_EXT":
               sRelationType = "Behavior Extended by"
               break
             case "DDLS_DS":
               sRelationType = "using Data Source"
+              break
+            case "DCLS_FOR":
+              sRelationType = "Access Control for"
               break
             default:
               sRelationType = "Unknown"
