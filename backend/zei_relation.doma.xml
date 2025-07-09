@@ -205,6 +205,24 @@
      <DOMVALUE_L>DDLX_EXT</DOMVALUE_L>
      <DDTEXT>Extending</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0033</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>PROG_START</DOMVALUE_L>
+     <DDTEXT>Starts Program</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0034</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DTEL_TYPE</DOMVALUE_L>
+     <DDTEXT>Using as Data Type</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0035</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>TTYP_TYPE</DOMVALUE_L>
+     <DDTEXT>Using as Data Type</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>

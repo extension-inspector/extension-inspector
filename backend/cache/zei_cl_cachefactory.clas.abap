@@ -46,6 +46,12 @@ CLASS zei_cl_cachefactory IMPLEMENTATION.
         r_cache_object = NEW zei_cl_bdef_cache( i_object_type = i_object_type i_object_name = i_object_name ).
       WHEN 'DDLX'.
         r_cache_object = NEW zei_cl_ddlx_cache( i_object_type = i_object_type i_object_name = i_object_name ).
+      WHEN 'TRAN'.
+        r_cache_object = NEW zei_cl_tran_cache( i_object_type = i_object_type i_object_name = i_object_name ).
+      WHEN 'DTEL'.
+        r_cache_object = NEW zei_cl_dtel_cache( i_object_type = i_object_type i_object_name = i_object_name ).
+      WHEN 'TTYP'.
+        r_cache_object = NEW zei_cl_ttyp_cache( i_object_type = i_object_type i_object_name = i_object_name ).
 
       WHEN OTHERS.
         r_cache_object = NEW zei_cl_cacheobject( i_object_type = i_object_type i_object_name = i_object_name ).
